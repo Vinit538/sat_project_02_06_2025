@@ -1,0 +1,111 @@
+.detailsMainContainer{
+    /* background:#E6E6FA !important; */
+    /* background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);  */
+    background: #ecf0f1 ;
+    color: #1b4f72;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .social-icons-bar {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    /* background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);  */
+    background: #ecf0f1 ;
+    text-align: center;
+  }
+  
+  
+  
+  
+  /* Base icon style */
+  .social_icon {
+    color: #1b4f72;
+    font-size: 58px;
+    background-color: transparent;
+    transition: transform 0.4s;
+  }
+  
+  /* Hover effects with platform color */
+  .social_icon:hover {
+    /* transform: scale(1.2); */
+    /* color: aquamarine; */
+    /* text-shadow:20px aqua; */
+    transition: transform 0.4s;
+    transform: translateY(-8px) !important;
+  }
+  
+  
+  
+  /* Responsive */
+  @media (max-width: 576px) {
+    .social_icon {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+  }
+  @media (max-width:768px) {
+  .bottomNav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  }
+  
+  
+  
+  .bottomNav{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  
+  
+  .detailsNavLinkHead{
+    font-weight: 700 !important;
+  }
+  
+  .detailsNavLinkDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    
+  }
+  
+  .navlinkInDetails {
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    color: #1c2833;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 2px 0;
+  }
+  
+  /* Underline grows from center */
+  .navlinkInDetails::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #0000FF;
+    transition: width 0.4s ease;
+  }
+  
+  /* On hover: expand underline from center */
+  .navlinkInDetails:hover::after {
+    width: 100%;
+  }
+  
+  .navlinkInDetails:hover {
+    color: #1b4f72;
+  }
+  

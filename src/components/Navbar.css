@@ -1,0 +1,165 @@
+.custom-navbar {
+    position: fixed !important;
+    width: 100%;
+    /* background: rgba(255, 255, 255, 0.6);  */
+    background: #eaecee ;
+    backdrop-filter: blur(0px); /* no blur initially */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 100;
+    /* box-shadow: 0 4px 8px black; */
+  }
+  
+  /* Blur effect when scrolled */
+  .custom-navbar.blurred {
+    /* background: rgba(255, 255, 255, 0.3); */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .blurred {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: white;
+  }
+  
+  /* Hide navbar when scrolling down */
+  .custom-navbar.hidden {
+    transform: translateY(-100%) !important;
+  }
+  
+  /* Show navbar normally */
+  .custom-navbar.visible {
+    transform: translateY(0) !important;
+  }
+  
+  /* Logo */
+  .navlogo {
+    height: 50px;
+    width: auto;
+  }
+  
+  /* Navbar Links */
+  
+  .navbar-nav .nav-link {
+    position: relative; /* very important */
+    font-size: 15px;
+    font-weight: bolder;
+    color: #1c2833 ;
+    /* font-family: "Instrument Sans", sans-serif; */
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    transition: color 0.3s;
+    display: inline-block; 
+  }
+  
+  /* Create the line */
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* or bottom: 4px; for slight spacing */
+    width: 0%;
+    height: 4px;
+    background-color: #0000FF ; /* your underline color */
+    /* transition: width 0.5s ease !important; */
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+  }
+  
+  /* On hover, grow the line */
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Optionally, keep text color same on hover */
+  .navbar-nav .nav-link:hover {
+    color: #1b4f72;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* .navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+    transition: color 0.3s;
+    font-family: "Instrument Sans", sans-serif;
+    font-weight:bolder;
+  
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: black;
+  } */
+  
+  /* Student Login Button */
+  
+  .navloginBtn{
+    background: #eaecee;
+    color: #1b4f72;
+  }
+  
+  .btn-outline-light {
+    color: #1b4f72;
+    border-radius: 20px;
+    padding: 6px 20px;
+  }
+  
+  /* Toggler Button */
+  .custom-toggler {
+    border: none !important;
+    background: transparent;
+    outline: none !important;
+    box-shadow: none !important;
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Hamburger lines */
+  .toggler-icon,
+  .toggler-icon::before,
+  .toggler-icon::after {
+    display: block;
+    background-color: black;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+  }
+  
+  .toggler-icon {
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+  
+  }
+  
+  .toggler-icon::before {
+    content: '';
+    top: -8px;
+  }
+  
+  .toggler-icon::after {
+    content: '';
+    top: 8px;
+  }
+  
+  /* When menu open (cross X animation) */
+  .custom-toggler.open .toggler-icon {
+    background-color: transparent;
+  }
+  
+  .custom-toggler.open .toggler-icon::before {
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+    top: 0;
+  }
+  
+  .custom-toggler.open .toggler-icon::after {
+    transform: rotate(-45deg);
+    transition: transform 0.3s;
+  
+    top: 0;
+  }
+  
