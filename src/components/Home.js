@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.css'; // Custom styles
 import Details from './Details';
 import UserForm from './HomeComponents/UserForm';
-import HeroTitle from './HeroTitle';
+import HeroTitle from './PagesComponents/HeroTitle';
 import WhySat from './HomeComponents/WhySat';
 import OurPrograms from './HomeComponents/OurPrograms';
 import OurSuccessStories from './HomeComponents/OurSuccessStories';

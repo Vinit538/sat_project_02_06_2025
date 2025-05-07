@@ -55,7 +55,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import PageLoader from './components/PageLoader'; // 👈
-import Navbar from './components/Navbar';
+import Navbar from './components/navbarComponents/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import ScrollIndicator from './ScrollIndicator';
@@ -63,13 +63,14 @@ import ScrollIndicator from './ScrollIndicator';
 // Pages
 import Home from './components/Home';
 import SatLogin from './components/SatLogin';
-import HireTalent from './components/HireTalent';
-import ContactUs from './components/ContactUs';
-import Career from './components/Career';
-import AboutUs from './components/AboutUs';
-import Courses from './components/Courses';
-import Projects from './components/Projects';
-import Internships from './components/Internships';
+import HireTalent from './components/PagesComponents/HireTalent';
+import ContactUs from './components/PagesComponents/ContactUs';
+import Career from './components/PagesComponents/Career';
+import AboutUs from './components/PagesComponents/AboutUs';
+import Courses from './components/PagesComponents/Courses';
+import Projects from './components/PagesComponents/Projects';
+import Internships from './components/PagesComponents/Internships';
+import JavaFullStack from './components/courseComponents/JavaFullStack';
 // ... others
 
 const AppContent = () => {
@@ -103,6 +104,7 @@ const AppContent = () => {
             <Route path='/courses' element={<Courses />} />
             <Route path='/projects' element={<Projects />} />
             <Route path='/internships' element={<Internships />} />
+            <Route path="/courses/java-fullstack" element={<JavaFullStack />} />
           </Routes>
           <Footer />
         </>

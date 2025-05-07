@@ -33,8 +33,9 @@
   
   /* Logo */
   .navlogo {
-    height: 50px;
+    height: 50px !important;
     width: auto;
+    padding: 0px;
   }
   
   /* Navbar Links */
@@ -96,6 +97,7 @@
   .navloginBtn{
     background: #eaecee;
     color: #1b4f72;
+    border: #0000FF !important;
   }
   
   .btn-outline-light {

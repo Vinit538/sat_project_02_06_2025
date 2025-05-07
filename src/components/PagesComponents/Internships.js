@@ -1,9 +1,10 @@
 import React from "react";
-// import "./Internships.css";
+import "./pagesStyle.css";
 
 function Internships() {
   return (
-    <div className="internships-page container py-5">
+   <div className="internships-page">
+     <div className="container py-5">
       <h2 className="text-center mb-4">Internship Opportunities</h2>
       <p className="lead text-center mb-5">
         Gain hands-on experience by working on real-world projects with expert guidance.
@@ -31,6 +32,7 @@ function Internships() {
         </div>
       </div>
     </div>
+   </div>
   );
 }
 

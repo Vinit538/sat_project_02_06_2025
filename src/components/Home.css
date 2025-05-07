@@ -1,263 +1,326 @@
 .mainbody {
-    background: none !important;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  
-  
-  .hero-section {
-    min-height: 100vh;
-    background: #ecf0f1;
-    color: #1b4f72;
-    justify-content: space-between !important;
-  }
-  
-  .intro_Div {
-    padding-top: 25px;
-  }
-  
-  .introDivHeading {
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-weight: 200;
-    font-variation-settings: "wdth" 100;
-  }
-  .introDivCompanyText{
-    font-family: "National Park", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    background: linear-gradient(to right, #43C6AC 0%, #191654  51%, #43C6AC  100%);
-    background-clip: text;
-    color: transparent;
-    background-size: 200% auto;
-    row-gap: 0;
-    transition: 0.5s;
-  }
-  .introDivCompanyText:hover{
-    background-position: right center;
-    color: transparent;
-    text-decoration: none;
-  }
-  
-  
-  .introDivText {
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-  }
-  
-  .btn-grad {
-    background-image: linear-gradient(to right, #c2e59c 0%, #64b3f4 51%, #c2e59c 100%)
-  }
-  
-  .btn-grad {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-  }
-  
-  .btn-grad:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .radioButtonTech {
-    margin-top: 50px !important;
-  }
-  
-  .form-check-input {
-    background-color: #007bff;
-    border-color: #007bff !important;
-  }
-  
-  /* form validation */
-  .is-valid {
-    border: 2px solid green !important;
-  }
-  
-  .is-invalid {
-    border: 2px solid red !important;
-  }
-  
-  .position-relative {
-    position: relative;
-  }
-  
-  .validation-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    pointer-events: none;
-  }
-  
-  .validation-icon.valid {
-    color: green;
-  }
-  
-  .validation-icon.invalid {
-    color: red;
-  }
-  
-  section {
-    padding: 100px 50px;
-    /* Top/Bottom and Side padding */
-  }
-  
-  .custom_registerBoxOuter {
-    padding-top: 20px !important;
-    padding: 10px;
-  }
-  
-  .custom_registerBoxInner {
-    margin:0px 50px;
-    padding: 20px !important;
-  
-  }
-  
-  
-  .form_box {
-    padding-bottom: 50px;
-  }
-  
-  .registerButton {
-    margin-top: 50px;
-  }
-  
-  .hero-img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  
-  
-  
-  
-  /* why Sat Section */
-  
-  
-  
-  
-  .why-section,
-  .placement-section {
-    /* background: linear-gradient(135deg, #6b21a8, #4338ca); */
-    /* background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%) */
-    /* background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%); */
-    /* background-color: #8BC6EC; */
-    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
-    /* backdrop-filter: blur(30px) !important;
+  background: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+.hero-section {
+  min-height: 100vh;
+  /* background: #ecf0f1; */
+  background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: #1b4f72;
+  justify-content: space-between !important;
+}
+
+.intro_Div {
+  padding-top: 25px;
+}
+
+.introDivHeading {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 200;
+  font-variation-settings: "wdth" 100;
+}
+
+.introDivCompanyText {
+  font-family: "National Park", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background: linear-gradient(to right, #43C6AC 0%, #191654 51%, #43C6AC 100%);
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  row-gap: 0;
+  transition: 0.5s;
+}
+
+.introDivCompanyText:hover {
+  background-position: right center;
+  color: transparent;
+  text-decoration: none;
+}
+
+
+.introDivText {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.btn-grad {
+  background-image: linear-gradient(to right, #c2e59c 0%, #64b3f4 51%, #c2e59c 100%)
+}
+
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.radioButtonTech {
+  margin-top: 50px !important;
+}
+
+.form-check-input {
+  background-color: #007bff;
+  border-color: #007bff !important;
+}
+
+/* form validation */
+.is-valid {
+  border: 2px solid green !important;
+}
+
+.is-invalid {
+  border: 2px solid red !important;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.validation-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+.validation-icon.valid {
+  color: green;
+}
+
+.validation-icon.invalid {
+  color: red;
+}
+
+section {
+  padding: 100px 50px;
+  /* Top/Bottom and Side padding */
+}
+
+.custom_registerBoxOuter {
+  padding-top: 20px !important;
+  padding: 10px;
+}
+
+.custom_registerBoxInner {
+  margin: 0px 50px;
+  padding: 20px !important;
+
+}
+
+
+.form_box {
+  padding-bottom: 50px;
+}
+
+.registerButton {
+  margin-top: 50px;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+/* why Sat Section */
+
+
+
+
+.why-section,
+.placement-section {
+  /* background: linear-gradient(135deg, #6b21a8, #4338ca); */
+  /* background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%) */
+  /* background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%); */
+  /* background-color: #8BC6EC; */
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  /* backdrop-filter: blur(30px) !important;
     box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37) !important;
     border: 2px solid rgba(255,255, 255, 0.18) !important; */
+}
+
+.why-section .card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.why-section .card:hover {
+
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.courses-section .course-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.courses-section .course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.success-box {
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.footer {
+  font-size: 14px;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+.card h3 {
+  color: #4f46e5;
+  /* Indigo color like SAT theme */
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* Responsive Scren Width */
+
+
+
+
+@media screen and (max-width: 768px) and (min-width: 425px) {
+  .custom_registerBoxInner {
+    margin: 0px 5px;
+    padding: 20px !important;
+
   }
-  
-  .why-section .card {
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .why-section .card:hover {
-   
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .courses-section .course-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .courses-section .course-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .success-box {
-    background: #f8f9fa;
-    border-radius: 10px;
-  }
-  
-  .footer {
-    font-size: 14px;
-  }
-  
-  .card {
-    border-radius: 15px;
-  }
-  
-  .card h3 {
-    color: #4f46e5;
-    /* Indigo color like SAT theme */
-    font-weight: bold;
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  /* Responsive Scren Width */
-  
-  
-  
-  
-  @media screen and (max-width: 768px) and (min-width: 425px) {
-    .custom_registerBoxInner {
-      margin:0px 5px;
-      padding: 20px !important;
-   
-    }
-  }
-  @media screen and (max-width: 424px) and (min-width: 321px) {
-    .custom_registerBoxInner {
-      margin:0px 5px;
-      padding: 10px !important;
-   
-    }
-    section {
-      padding: 100px 15px;
-    }  
-  }
-  @media screen and (max-width: 321px) {
-    .custom_registerBoxInner {
-      margin:0px 0px;
-      padding: 20px !important;
-   
-    }
-    section {
-      padding: 100px 5px;
-    }  
-    .intro_Div {
-     margin: 10px !important;
-      padding-top: 25px !important;
-    }
-    .introDivText{
-      padding: 10px !important;
-      margin: 5px;
-    }
+}
+
+@media screen and (max-width: 424px) and (min-width: 321px) {
+  .custom_registerBoxInner {
+    margin: 0px 5px;
+    padding: 10px !important;
+
   }
 
-  .Toastify__toast-container {
-    padding: 0 !important;
-    margin: 0 !important;
+  section {
+    padding: 100px 15px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .custom_registerBoxInner {
+    margin: 0px 0px;
+    padding: 20px !important;
+
+  }
+
+  section {
+    padding: 100px 5px;
+  }
+
+  .intro_Div {
+    margin: 10px !important;
+    padding-top: 25px !important;
+  }
+
+  .introDivText {
+    padding: 10px !important;
+    margin: 5px;
+  }
+}
+
+.Toastify__toast-container {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .Toastify__toast {
-    margin-bottom: 20px; /* Optional: space between toasts */
-    padding: 8px 12px;    /* Optional: reduce internal padding */
+  margin-bottom: 20px;
+  /* Optional: space between toasts */
+  padding: 8px 12px;
+  /* Optional: reduce internal padding */
 }
-.Toastify{
+
+.Toastify {
   padding: 0px !important;
+}
+
+
+
+.course-card {
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  /* background:linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); */
+  /* background: #2193b0; */
+  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0); */
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #6dd5ed, #2193b0); */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background-image: linear-gradient( 35.7deg,  rgba(105,238,218,1) 31.2%, rgba(114,80,228,1) 81.4% ); */
+  /* background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); */
+  background-color: #6CB1DA !important;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 20px aqua !important;
+
+}
+
+.card-title{
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.subHeading{
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto; 
+  font-weight: 600; 
+}
+.card-text{
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+}
+
+
+.scroll-container {
+  overflow-x: auto;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE 10+ */
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
 }

@@ -1,5 +1,5 @@
 import React from "react";
-// import "./HireFromUs.css";
+import "./pagesStyle.css";
 
 function HireTalent() {
   return (

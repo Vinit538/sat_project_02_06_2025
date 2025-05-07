@@ -53,7 +53,7 @@ function Navbar() {
     >
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center" to="/" onClick={handleLinkClick}>
-          <img src="/satlogo.png" alt="Logo" className="navlogo" />
+          <img src="/sat_logo3.png" alt="Logo" className="navlogo" />
         </Link>
 
         <button
@@ -70,13 +70,13 @@ function Navbar() {
         <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
             <li className="nav-item">
-              <Link className="nav-link" to="#" onClick={handleLinkClick}>Full Stack Development</Link>
+              <Link className="nav-link" to="/courses" onClick={handleLinkClick}>Courses</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#" onClick={handleLinkClick}>Cloud Computing</Link>
+              <Link className="nav-link" to="/projects" onClick={handleLinkClick}>Project</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#" onClick={handleLinkClick}>Projects / Internship</Link>
+              <Link className="nav-link" to="/internships" onClick={handleLinkClick}>Internship</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/hireTalent" onClick={handleLinkClick}>Hire Talent</Link>
