@@ -436,3 +436,7 @@ section {
   align-items: center;
   justify-content: center;
 }
+
+.studentStoryImg{
+  border: 2px solid #007bff ;
+}

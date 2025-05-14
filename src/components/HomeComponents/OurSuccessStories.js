@@ -393,8 +393,8 @@ function OurSuccessStories() {
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="rounded-circle mb-3"
-                    style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                    className="rounded-circle mb-3 studentStoryImg"
+                    style={{ width: "150px", height: "150px", objectFit: "cover" }}
                   />
                   <h6 className="fw-bold">{story.name}</h6>
                   <p className="text-muted small mb-1">{story.role}</p>
