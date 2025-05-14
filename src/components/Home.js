@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.css'; // Custom styles
 import Details from './Details';
 import UserForm from './HomeComponents/UserForm';
-import HeroTitle from './PagesComponents/HeroTitle';
+import HeroTitle from './HomeComponents/HeroTitle';
 import WhySat from './HomeComponents/WhySat';
 import OurPrograms from './HomeComponents/OurPrograms';
 import OurSuccessStories from './HomeComponents/OurSuccessStories';
@@ -12,13 +12,13 @@ function Home() {
   return (
     <div className='mainbody'>
       {/* Hero Section */}
-      <section className="hero-section d-flex justify-content-between">
+      <section className="hero-section d-flex justify-content-between" id='formPage'>
         {/* <div className="container"> */}
         <div className="row">
           <HeroTitle />
           <div className="col-md-6 custom_registerBoxOuter ">
             <div className="card p-4 shadow-lg p-3 mb-5 bg-body rounded custom_registerBoxInner">
-              <h3 className="mb-4 text-left">Register Now and Begin Your Learning Journey!</h3>
+              <h3 className="mb-4 text-left fromHeadingText">Register Now and Begin Your Learning Journey!</h3>
               <UserForm />
             </div>
           </div>
@@ -31,7 +31,7 @@ function Home() {
       </section>
 
       {/* Courses Section */}
-      <section id="courses" className="courses-section py-5 bg-light">
+      <section id="courses" className="courses-section py-5">
        <OurPrograms />
       </section>
 

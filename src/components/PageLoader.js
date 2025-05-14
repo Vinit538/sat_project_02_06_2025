@@ -5,7 +5,10 @@ import './PageLoader.css';
 const PageLoader = () => {
   return (
     <div className="page-loader">
-      <div className="loader-logo">SAT Academy</div> {/* or replace with image */}
+      <img src="/sat_logo3.png" alt="Logo" className="navlogo" />
+      <h1></h1>
+      <h1 className="loader-logo"> Academy</h1>
+
     </div>
   );
 };

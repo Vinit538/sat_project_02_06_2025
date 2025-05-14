@@ -51,7 +51,7 @@ function Navbar() {
         ${showNavbar ? 'visible' : 'hidden'}
       `}
     >
-      <div className="container">
+      <div className="container divNavContainer d-flex justify-content-between align-items-center">
         <Link className="navbar-brand d-flex align-items-center" to="/" onClick={handleLinkClick}>
           <img src="/sat_logo3.png" alt="Logo" className="navlogo" />
         </Link>
@@ -67,7 +67,7 @@ function Navbar() {
           <div className="toggler-icon"></div>
         </button>
 
-        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarContent">
+        <div className={`collapse navbar-collapse navbarLinksBar ${isOpen ? 'show' : ''}`} id="navbarContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
             <li className="nav-item">
               <Link className="nav-link" to="/courses" onClick={handleLinkClick}>Courses</Link>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './coursePageStyle.css'
+import './coursePageStyle.css';
 
 const JavaFullStack = () => {
     return (

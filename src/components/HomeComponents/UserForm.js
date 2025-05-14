@@ -180,7 +180,7 @@ function UserForm() {
             <form className='form_box' onSubmit={handleNewUserSubmit}>
                 <div className="mb-3 position-relative">
                     <input
-                        className={`form-control ${validationStatus.userName === null
+                        className={`form-control input-colored ${validationStatus.userName === null
                             ? ""
                             : validationStatus.userName
                                 ? "is-valid"
@@ -215,7 +215,7 @@ function UserForm() {
 
                 <div className="mb-3 position-relative">
                     <input
-                        className={`form-control ${validationStatus.userEmail === null
+                        className={`form-control input-colored ${validationStatus.userEmail === null
                             ? ""
                             : validationStatus.userEmail
                                 ? "is-valid"
@@ -252,7 +252,7 @@ function UserForm() {
 
                 <div className="mb-3 position-relative">
                     <input
-                        className={`form-control ${validationStatus.userPhoneNo === null
+                        className={`form-control input-colored ${validationStatus.userPhoneNo === null
                             ? ""
                             : validationStatus.userPhoneNo
                                 ? "is-valid"
@@ -280,7 +280,7 @@ function UserForm() {
                 </div>
                 <div className="mb-3 position-relative">
                     <input
-                        className={`form-control ${validationStatus.userCity === null
+                        className={`form-control input-colored ${validationStatus.userCity === null
                             ? ""
                             : validationStatus.userCity
                                 ? "is-valid"
@@ -309,7 +309,44 @@ function UserForm() {
                     )}
                 </div>
 
-                <div className="mb-3">
+
+                <div  className='row'>
+                      <div className="col-md-6 mb-3">
+                    <select
+                        className="form-select input-colored"
+                        id="userQualification"
+                        name="userQualification"
+                        onChange={newUserInputChange}
+                        value={newUserData.userQualification}
+                        required
+                    >
+                        <option value="">Select Qualification</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="Post Graduation">Post Graduation</option>
+                        <option value="Diploma/PUC">Diploma/PUC</option>
+                    </select>
+                </div>
+
+                <div className="col-md-6 mb-3">
+                    <select
+                        className="form-select input-colored"
+                        id="userLanguage"
+                        name="userLanguage"
+                        onChange={newUserInputChange}
+                        value={newUserData.userLanguage}
+                        required
+                    >
+                        <option value="">Select Language</option>
+                        <option value="Kannada">Kannada</option>
+                        <option value="English">English</option>
+                        <option value="Telugu">Telugu</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="Hindi">Hindi</option>
+                    </select>
+                </div>
+                </div>
+
+                {/* <div className="mb-3">
                     <select
                         className="form-select"
                         id="userQualification"
@@ -341,7 +378,7 @@ function UserForm() {
                         <option value="Tamil">Tamil</option>
                         <option value="Hindi">Hindi</option>
                     </select>
-                </div>
+                </div> */}
 
 
 
@@ -376,12 +413,12 @@ function UserForm() {
                             type="radio"
                             name="userSelectedTech"
                             id="cad"
-                            value="DATA ENGNEERING"
+                            value="Data Engneering"
                             onChange={newUserInputChange}
                             required
                         />
                         <label className="form-check-label" htmlFor="cad">
-                            DATA ENGNEERING
+                            Data Engneering
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -459,7 +496,7 @@ function UserForm() {
                             onChange={newUserInputChange}
                         />
                         <label className="form-check-label" htmlFor="fullstack">
-                            FullStack Developer
+                            Full Stack Develop
                         </label>
                     </div>
                 </div>
@@ -467,7 +504,7 @@ function UserForm() {
 
 
                 <div className='registerButton'>
-                    <button type="submit" className="btn btn-primary w-100">
+                    <button type="submit" className="btn registerBtn w-100">
                         Register
                     </button>
                 </div>

@@ -1,0 +1,77 @@
+// it will work the each alphabets of the senstence 
+import { useSprings, animated } from '@react-spring/web';
+import { useEffect, useRef, useState } from 'react';
+
+const SplitText = ({
+  text = '',
+  className = '',
+  delay = 100,
+  animationFrom = { opacity: 0, transform: 'translateY(20px)' },
+  animationTo = { opacity: 1, transform: 'translateY(0)' },
+  easing = 'easeOutCubic',
+  threshold = 0.1,
+  rootMargin = '-100px',
+  textAlign = 'center',
+  onWordAnimationComplete,
+}) => {
+  const words = text.trim().split(/\s+/); // split by space
+  const [inView, setInView] = useState(false);
+  const ref = useRef();
+  const animatedCount = useRef(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.unobserve(ref.current);
+        }
+      },
+      { threshold, rootMargin }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold, rootMargin]);
+
+  const springs = useSprings(
+    words.length,
+    words.map((_, i) => ({
+      from: animationFrom,
+      to: inView
+        ? async (next) => {
+            await next(animationTo);
+            animatedCount.current += 1;
+            if (animatedCount.current === words.length && onWordAnimationComplete) {
+              onWordAnimationComplete();
+            }
+          }
+        : animationFrom,
+      delay: i * delay,
+      config: { easing },
+    }))
+  );
+
+  return (
+    <p
+      ref={ref}
+      className={`split-parent ${className}`}
+      style={{ textAlign, overflow: 'hidden', display: 'inline-block', flexWrap: 'wrap' }}
+    >
+      {words.map((word, index) => (
+        <animated.span
+          key={index}
+          style={{
+            ...springs[index],
+            display: 'inline-block',
+            marginRight: '0.4em',
+            willChange: 'opacity, transform',
+          }}
+        >
+          {word}
+        </animated.span>
+      ))}
+    </p>
+  );
+};
+
+export default SplitText;

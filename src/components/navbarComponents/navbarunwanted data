@@ -1,0 +1,68 @@
+ /* .navbar-nav .nav-link {
+    position: relative; 
+    font-size: 15px;
+    font-weight: bolder;
+    color: #1c2833 ;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    transition: color 0.3s;
+    display: inline-block; 
+  } */
+  
+  /* Create the line */
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* or bottom: 4px; for slight spacing */
+    width: 0%;
+    height: 4px;
+    background-color: #0000FF ; /* your underline color */
+    /* transition: width 0.5s ease !important; */
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+  }
+  
+  /* On hover, grow the line */
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Optionally, keep text color same on hover */
+  .navbar-nav .nav-link:hover {
+    color: #000000 !important;
+    /* color: #1b4f72; */
+    /* backdrop-filter: blur(10px); */
+  }
+
+
+
+  .navbar-nav .nav-link {
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1c2833;
+  font-family: "Poppins", sans-serif;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 4px;
+  background-color: #0000FF;
+  transition: width 0.5s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #000000 !important;
+}

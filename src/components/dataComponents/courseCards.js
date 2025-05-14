@@ -3,7 +3,7 @@ const courseCards = [
     {
         id: "satC1",
         title: "DATA ENGINEERING",
-        image: "https://source.unsplash.com/600x400/?data,engineering",
+        image: "/images/CourseImg.jpeg",
         subCourses: ["DATA ENGINEERING with AWS", "DATA ENGINEERING with AZURE"],
         technologies: ["Python", "SQL", "Apache Spark", "Hadoop", "Airflow", "AWS", "Azure", "Data Warehousing"],
         duration: "3 months",

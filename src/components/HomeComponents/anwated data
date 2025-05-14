@@ -311,6 +311,89 @@
 // export default courseCards;
 
 
+// import { useSprings, animated } from '@react-spring/web';
+// import { useEffect, useRef, useState } from 'react';
+
+// const SplitText = ({
+//   text = '',
+//   className = '',
+//   delay = 150,
+//   animationFrom = { opacity: 0, transform: 'translateY(30px)' },
+//   animationTo = { opacity: 1, transform: 'translateY(0)' },
+//   easing = 'easeOutCubic',
+//   threshold = 0.1,
+//   rootMargin = '-100px',
+//   textAlign = 'center',
+//   onWordAnimationComplete,
+// }) => {
+//   const words = text.trim().split(/\s+/); // SPLIT BY SPACE
+//   const [inView, setInView] = useState(false);
+//   const ref = useRef();
+//   const animatedCount = useRef(0);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setInView(true);
+//           observer.unobserve(ref.current);
+//         }
+//       },
+//       { threshold, rootMargin }
+//     );
+//     observer.observe(ref.current);
+//     return () => observer.disconnect();
+//   }, [threshold, rootMargin]);
+
+//   const springs = useSprings(
+//     words.length,
+//     words.map((_, i) => ({
+//       from: animationFrom,
+//       to: inView
+//         ? async (next) => {
+//             await next(animationTo);
+//             animatedCount.current += 1;
+//             if (animatedCount.current === words.length && onWordAnimationComplete) {
+//               onWordAnimationComplete();
+//             }
+//           }
+//         : animationFrom,
+//       delay: i * delay,
+//       config: { easing },
+//     }))
+//   );
+
+//   return (
+//     <p
+//       ref={ref}
+//       className={`split-parent ${className}`}
+//       style={{
+//         textAlign,
+//         display: 'flex',
+//         flexWrap: 'wrap',
+//         gap: '0.3em',
+//         justifyContent: textAlign === 'center' ? 'center' : 'flex-start',
+//       }}
+//     >
+//       {words.map((word, index) => (
+//         <animated.span
+//           key={index}
+//           style={{
+//             ...springs[index],
+//             display: 'inline-block',
+//             willChange: 'transform, opacity',
+//           }}
+//         >
+//           {word}
+//         </animated.span>
+//       ))}
+//     </p>
+//   );
+// };
+
+// export default SplitText;
+
+
 
 
 
@@ -437,3 +520,1336 @@ function OurPrograms() {
 export default OurPrograms;
 
 
+// import React, { useRef } from 'react';
+// import '../Home.css';
+// import SplitText from '../SplitText';
+// import courses from '../dataComponents/courseCards';
+
+// const CourseCard = ({ title, subCourses, image, technologies, duration, highlights }) => (
+//   <div className="card me-3 course-card" style={{ minWidth: '300px', maxWidth: '300px' }}>
+//     <img src={image || 'https://via.placeholder.com/300x180'} className="card-img-top" alt={title} />
+//     <div className="card-body">
+//       <h5 className="card-title">{title}</h5>
+//       {technologies?.length > 0 && (
+//         <>
+//           <h6 className='subHeading'>Technologies:</h6>
+//           <p className='card-text'>{technologies.join(', ')}</p>
+//         </>
+//       )}
+//     </div>
+//   </div>
+// );
+
+// function OurPrograms() {
+//   const scrollRef = useRef(null);
+
+//   const scroll = (direction) => {
+//     const scrollAmount = 320;
+//     scrollRef.current.scrollBy({
+//       left: direction === 'left' ? -scrollAmount : scrollAmount,
+//       behavior: 'smooth',
+//     });
+//   };
+
+//   return (
+//     <div className="bg-light py-5 px-3">
+//       <div className="text-center mb-5">
+//         <SplitText
+//           text="Our Programs"
+//           className="fw-bold fs-2"
+//           delay={30}
+//           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+//           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+//           textAlign="center"
+//         />
+//       </div>
+
+//       {/* Desktop View */}
+//       <div className="d-none d-md-block position-relative">
+//         <button
+//           className="btn btn-light position-absolute top-50 start-0 translate-middle-y z-2"
+//           onClick={() => scroll('left')}
+//         >
+//           ‹
+//         </button>
+//         <div
+//           ref={scrollRef}
+//           className="d-flex scroll-container pb-3 px-5"
+//         >
+//           {courses.map(course => (
+//             <CourseCard
+//               key={course.id}
+//               {...course}
+//             />
+//           ))}
+//         </div>
+//         <button
+//           className="btn btn-light position-absolute top-50 end-0 translate-middle-y z-2"
+//           onClick={() => scroll('right')}
+//         >
+//           ›
+//         </button>
+//       </div>
+
+//       {/* Mobile View */}
+//       <div className="d-md-none">
+//         <div className="row g-4">
+//           {courses.map(course => (
+//             <div className="col-12" key={course.id}>
+//               <CourseCard {...course} />
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+// import React, { useRef } from 'react';
+// import '../Home.css';
+// import SplitText from '../SplitText';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+// import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+// const CourseCard = ({ title, image, technologies }) => (
+//   <motion.div
+//     className="card me-3 course-card"
+//     style={{ minWidth: '300px', maxWidth: '300px' }}
+//     initial={{ opacity: 0, y: 30 }}
+//     whileInView={{ opacity: 1, y: 0 }}
+//     viewport={{ once: true }}
+//     transition={{ duration: 0.5, ease: 'easeOut' }}
+//   >
+//     <img src={image || 'https://via.placeholder.com/300x180'} className="card-img-top" alt={title} />
+//     <div className="card-body text-center">
+//       <h5 className="card-title">{title}</h5>
+//       {technologies?.length > 0 && (
+//         <>
+//           <h6 className="text-muted">Technologies</h6>
+//           <p className="card-text small">{technologies.join(', ')}</p>
+//         </>
+//       )}
+//     </div>
+//   </motion.div>
+// );
+
+// function OurPrograms() {
+//   const scrollRef = useRef(null);
+
+//   const scroll = (direction) => {
+//     const scrollAmount = 340;
+//     scrollRef.current.scrollBy({
+//       left: direction === 'left' ? -scrollAmount : scrollAmount,
+//       behavior: 'smooth',
+//     });
+//   };
+
+//   return (
+//     <div className="bg-light py-5 px-3">
+//       <div className="text-center mb-5">
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6 }}
+//         >
+//           <SplitText
+//             text="Our Programs"
+//             className="fw-bold fs-2"
+//             delay={30}
+//             animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+//             animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+//             textAlign="center"
+//           />
+//         </motion.div>
+//       </div>
+
+//       {/* Desktop View */}
+//       <div className="d-none d-md-block position-relative">
+//         <button
+//           className="carousel-btn start-0"
+//           onClick={() => scroll('left')}
+//         >
+//           <FaChevronLeft />
+//         </button>
+//         <div
+//           ref={scrollRef}
+//           className="d-flex overflow-auto scroll-container px-5 gap-4 pb-3"
+//         >
+//           {courses.map((course) => (
+//             <CourseCard key={course.id} {...course} />
+//           ))}
+//         </div>
+//         <button
+//           className="carousel-btn end-0"
+//           onClick={() => scroll('right')}
+//         >
+//           <FaChevronRight />
+//         </button>
+//       </div>
+
+//       {/* Mobile View */}
+//       <div className="d-md-none">
+//         <div className="row g-4">
+//           {courses.map((course) => (
+//             <div className="col-12" key={course.id}>
+//               <CourseCard {...course} />
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+// import React from 'react';
+// import '../Home.css';
+// import SplitText from '../SplitText';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+
+// const CourseCard = ({ title, image, technologies }) => (
+//   <motion.div
+//     className="col-12 col-sm-6 col-lg-4 mb-4"
+//     initial={{ opacity: 0, y: 40 }}
+//     whileInView={{ opacity: 1, y: 0 }}
+//     viewport={{ once: true }}
+//     transition={{ duration: 0.6, ease: 'easeOut' }}
+//   >
+//     <div className="card h-100 shadow-sm course-card">
+//       <img
+//         src={image || 'https://via.placeholder.com/300x180'}
+//         className="card-img-top"
+//         alt={title}
+//         style={{ height: '180px', objectFit: 'cover' }}
+//       />
+//       <div className="card-body text-center">
+//         <h5 className="card-title">{title}</h5>
+//         {technologies?.length > 0 && (
+//           <>
+//             <h6 className="text-muted">Technologies</h6>
+//             <p className="card-text small">{technologies.join(', ')}</p>
+//           </>
+//         )}
+//       </div>
+//     </div>
+//   </motion.div>
+// );
+
+// function OurPrograms() {
+//   return (
+//     <div className="bg-light py-5 px-3">
+//       <div className="text-center mb-5">
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6 }}
+//         >
+//           <SplitText
+//             text="Our Programs"
+//             className="fw-bold fs-2"
+//             delay={30}
+//             animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+//             animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+//             textAlign="center"
+//           />
+//         </motion.div>
+//       </div>
+
+//       <div className="container">
+//         <div className="row">
+//           {courses.map((course) => (
+//             <CourseCard key={course.id} {...course} />
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+// import React, { useRef } from 'react';
+// import '../Home.css';
+// import SplitText from '../SplitText';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+
+// const CourseCard = ({ title, image, technologies }) => (
+//   <motion.div
+//     className="course-card me-3"
+//     style={{ minWidth: '280px', maxWidth: '280px' }}
+//     initial={{ opacity: 0, y: 30 }}
+//     whileInView={{ opacity: 1, y: 0 }}
+//     viewport={{ once: true }}
+//     transition={{ duration: 0.5, ease: 'easeOut' }}
+//   >
+//     <div className="card h-100 shadow-sm rounded-4 overflow-hidden">
+//       <img
+//         src={image || 'https://via.placeholder.com/280x160'}
+//         className="card-img-top"
+//         alt={title}
+//         style={{ height: '160px', objectFit: 'cover' }}
+//       />
+//       <div className="card-body text-center">
+//         <h5 className="card-title fw-semibold">{title}</h5>
+//         {technologies?.length > 0 && (
+//           <p className="card-text text-muted small mb-0">
+//             <strong>Technologies:</strong> {technologies.join(', ')}
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   </motion.div>
+// );
+
+// function OurPrograms() {
+//   const scrollRef = useRef(null);
+
+//   const scroll = (direction) => {
+//     const scrollAmount = 320;
+//     scrollRef.current.scrollBy({
+//       left: direction === 'left' ? -scrollAmount : scrollAmount,
+//       behavior: 'smooth',
+//     });
+//   };
+
+//   return (
+//     <section className="bg-light py-5 px-3 position-relative">
+//       <motion.div
+//         className="text-center mb-5"
+//         initial={{ opacity: 0, y: 20 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.6 }}
+//       >
+//         <SplitText
+//           text="Our Programs"
+//           className="fw-bold fs-2"
+//           delay={30}
+//           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+//           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+//           textAlign="center"
+//         />
+//       </motion.div>
+
+//       <div className="d-flex align-items-center">
+//         <button
+//           className="btn btn-outline-secondary rounded-circle me-2"
+//           onClick={() => scroll('left')}
+//         >
+//           ‹
+//         </button>
+//         <div
+//           ref={scrollRef}
+//           className="scroll-container d-flex overflow-auto pb-3"
+//           style={{ scrollSnapType: 'x mandatory' }}
+//         >
+//           {courses.map((course) => (
+//             <div style={{ scrollSnapAlign: 'start' }} key={course.id}>
+//               <CourseCard {...course} />
+//             </div>
+//           ))}
+//         </div>
+//         <button
+//           className="btn btn-outline-secondary rounded-circle ms-2"
+//           onClick={() => scroll('right')}
+//         >
+//           ›
+//         </button>
+//       </div>
+//     </section>
+//   );
+// }
+
+// export default OurPrograms;
+
+// import React from 'react';
+// import '../Home.css';
+// import SplitText from '../SplitText';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+
+// const CourseCard = ({ title, image, technologies }) => (
+//   <motion.div
+//     className="col-md-4"
+//     initial={{ opacity: 0, y: 30 }}
+//     whileInView={{ opacity: 1, y: 0 }}
+//     viewport={{ once: true }}
+//     transition={{ duration: 0.5, ease: 'easeOut' }}
+//   >
+//     <div className="card h-100 shadow-sm rounded-4 overflow-hidden">
+//       <img
+//         src={image || 'https://via.placeholder.com/280x160'}
+//         className="card-img-top"
+//         alt={title}
+//         style={{ height: '160px', objectFit: 'cover' }}
+//       />
+//       <div className="card-body text-center">
+//         <h5 className="card-title fw-semibold">{title}</h5>
+//         {technologies?.length > 0 && (
+//           <p className="card-text text-muted small mb-0">
+//             <strong>Technologies:</strong> {technologies.join(', ')}
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   </motion.div>
+// );
+
+// function OurPrograms() {
+//   return (
+//     <div className="container text-center py-5">
+//       <motion.div
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.7, ease: 'easeOut' }}
+//       >
+//         <h2 className='fw-bold mb-5 fs-2'>Our Programs</h2>
+//       </motion.div>
+
+//       <div className="row g-4">
+//         {courses.slice(0, 6).map((course, index) => (
+//           <CourseCard
+//             key={course.id}
+//             {...course}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+// import React, { useRef } from 'react';
+// import '../Home.css';
+// import SplitText from '../SplitText';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+
+// const CourseCard = ({ title, image, technologies }) => (
+//   <motion.div
+//     className="me-3"
+//     style={{ minWidth: '260px', maxWidth: '260px', scrollSnapAlign: 'start' }}
+//     initial={{ opacity: 0, y: 30 }}
+//     whileInView={{ opacity: 1, y: 0 }}
+//     viewport={{ once: true }}
+//     transition={{ duration: 0.5, ease: 'easeOut' }}
+//   >
+//     <div className="card h-100 shadow-sm rounded-4 overflow-hidden">
+//       <img
+//         src={image || 'https://via.placeholder.com/280x160'}
+//         className="card-img-top"
+//         alt={title}
+//         style={{ height: '160px', objectFit: 'cover' }}
+//       />
+//       <div className="card-body text-center">
+//         <h5 className="card-title fw-semibold">{title}</h5>
+//         {technologies?.length > 0 && (
+//           <p className="card-text text-muted small mb-0">
+//             <strong>Technologies:</strong> {technologies.join(', ')}
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   </motion.div>
+// );
+
+// function OurPrograms() {
+//   const scrollRef = useRef(null);
+
+//   const scroll = (direction) => {
+//     const scrollAmount = 300;
+//     scrollRef.current.scrollBy({
+//       left: direction === 'left' ? -scrollAmount : scrollAmount,
+//       behavior: 'smooth'
+//     });
+//   };
+
+//   return (
+//     <div className="container py-5">
+//       <motion.div
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.7, ease: 'easeOut' }}
+//         className="text-center mb-5"
+//       >
+//         <h2 className='fw-bold fs-2'>Our Programs</h2>
+//       </motion.div>
+
+//       {/* Horizontal scroll for md and above */}
+//       <div className="d-none d-md-block position-relative">
+//         <button
+//           className="btn btn-light position-absolute top-50 start-0 translate-middle-y z-2"
+//           onClick={() => scroll('left')}
+//         >
+//           ‹
+//         </button>
+//         <div
+//           ref={scrollRef}
+//           className="d-flex overflow-auto pb-3 px-5 hide-scrollbar"
+//           style={{ scrollSnapType: 'x mandatory' }}
+//         >
+//           {courses.map(course => (
+//             <CourseCard key={course.id} {...course} />
+//           ))}
+//         </div>
+//         <button
+//           className="btn btn-light position-absolute top-50 end-0 translate-middle-y z-2"
+//           onClick={() => scroll('right')}
+//         >
+//           ›
+//         </button>
+//       </div>
+
+//       {/* Grid layout for tablets and below */}
+//       <div className="row g-4 d-md-none">
+//         {courses.slice(0, 6).map(course => (
+//           <div className="col-12" key={course.id}>
+//             <CourseCard {...course} />
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+// // // // // import React from 'react';
+// // // // // import '../Home.css';
+// // // // // import SplitText from '../SplitText'; // Update path if needed
+
+// // // // // function OurSuccessStories() {
+// // // // //     return (
+// // // // //         <div className="container text-center">
+
+// // // // //             <div className='py-5'>
+// // // // //                 <SplitText
+// // // // //                     text="Our Success Stories"
+// // // // //                     className="fw-bold mb-5 fs-2"
+// // // // //                     delay={30}
+// // // // //                     animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// // // // //                     animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// // // // //                     textAlign="center"
+// // // // //                 />
+// // // // //             </div>
+// // // // //             {/* <h2 className="fw-bold mb-5">Our Success Stories</h2> */}
+// // // // //             <div className="row g-4">
+// // // // //                 <div className="col-md-6">
+// // // // //                     <div className="success-box p-4 shadow-sm">
+// // // // //                         <h5>500+ Students Placed</h5>
+// // // // //                         <p>Our alumni are now working in MNCs like Infosys, TCS, Capgemini, and more.</p>
+// // // // //                     </div>
+// // // // //                 </div>
+// // // // //                 <div className="col-md-6">
+// // // // //                     <div className="success-box p-4 shadow-sm">
+// // // // //                         <h5>95% Placement Record</h5>
+// // // // //                         <p>Get job ready with SAT Academy's intensive placement training programs.</p>
+// // // // //                     </div>
+// // // // //                 </div>
+// // // // //             </div>
+// // // // //         </div>
+// // // // //     )
+// // // // // }
+// // // // // export default OurSuccessStories;
+
+// // // // import React from 'react';
+// // // // import '../Home.css';
+// // // // import SplitText from '../SplitText'; // Update path if needed
+// // // // import { motion } from 'framer-motion';
+
+// // // // function OurSuccessStories() {
+// // // //   return (
+// // // //     <div className="container text-center py-5">
+// // // //       <SplitText
+// // // //         text="Our Success Stories"
+// // // //         className="fw-bold mb-5 fs-2"
+// // // //         delay={30}
+// // // //         animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// // // //         animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// // // //         textAlign="center"
+// // // //       />
+
+// // // //       {/* Counters */}
+// // // //       <div className="row g-4 mb-4">
+// // // //         <div className="col-md-4">
+// // // //           <div className="success-box p-4 shadow-sm rounded">
+// // // //             <h5 className="fw-bold">500+ Students Trained</h5>
+// // // //             <p>We’ve helped hundreds build a solid tech foundation.</p>
+// // // //           </div>
+// // // //         </div>
+// // // //         <div className="col-md-4">
+// // // //           <div className="success-box p-4 shadow-sm rounded">
+// // // //             <h5 className="fw-bold">100+ Students Placed</h5>
+// // // //             <p>Our alumni are working at Infosys, TCS, Capgemini & more.</p>
+// // // //           </div>
+// // // //         </div>
+// // // //         <div className="col-md-4">
+// // // //           <div className="success-box p-4 shadow-sm rounded">
+// // // //             <h5 className="fw-bold">10+ Hiring Partners</h5>
+// // // //             <p>Partnering with startups and MNCs to build talent pipelines.</p>
+// // // //           </div>
+// // // //         </div>
+// // // //       </div>
+
+// // // //       {/* Testimonials */}
+// // // //       <div className="row g-4 mb-5">
+// // // //         <div className="col-md-6">
+// // // //           <div className="p-4 border rounded bg-light text-start">
+// // // //             <p className="mb-1">“SAT Academy helped me land my dream job at Wipro with its practical training.”</p>
+// // // //             <strong>- Priya S., Java Trainee</strong>
+// // // //           </div>
+// // // //         </div>
+// // // //         <div className="col-md-6">
+// // // //           <div className="p-4 border rounded bg-light text-start">
+// // // //             <p className="mb-1">“I was struggling to get interviews. After SAT's Python course, I got placed at a tech startup!”</p>
+// // // //             <strong>- Arjun R., Python Trainee</strong>
+// // // //           </div>
+// // // //         </div>
+// // // //       </div>
+
+// // // //       {/* Logos */}
+// // // //       <div className="mb-5">
+// // // //         <h6 className="fw-bold mb-3">Our Students Work At</h6>
+// // // //         <div className="d-flex justify-content-center gap-4 flex-wrap align-items-center">
+// // // //           <img src="/logos/infosys.png" alt="Infosys" height="40" />
+// // // //           <img src="/logos/tcs.png" alt="TCS" height="40" />
+// // // //           <img src="/logos/capgemini.png" alt="Capgemini" height="40" />
+// // // //           <img src="/logos/startup.png" alt="Startup" height="40" />
+// // // //         </div>
+// // // //       </div>
+
+// // // //       {/* CTA */}
+// // // //       <div className="text-center">
+// // // //         <a href="/register" className="btn btn-primary btn-lg rounded-pill px-4">Start Your Success Story →</a>
+// // // //       </div>
+// // // //     </div>
+// // // //   );
+// // // // }
+
+// // // // export default OurSuccessStories;
+// // // // import React from 'react';
+// // // // import '../Home.css';
+// // // // import SplitText from '../SplitText';
+
+// // // // function OurSuccessStories() {
+// // // //   return (
+// // // //     <div className="container py-5">
+// // // //       {/* Section Title */}
+// // // //       <div className="text-center mb-5">
+// // // //         <SplitText
+// // // //           text="Our Success Stories"
+// // // //           className="fw-bold fs-2"
+// // // //           delay={30}
+// // // //           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// // // //           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// // // //           textAlign="center"
+// // // //         />
+// // // //         <p className="text-muted mt-3">
+// // // //           We’re a startup with a big mission: to transform lives through skill-based training. Here’s how our students are achieving real success.
+// // // //         </p>
+// // // //       </div>
+
+// // // //       {/* Success Metrics */}
+// // // //       <div className="row text-center mb-5">
+// // // //         <div className="col-md-4 mb-4">
+// // // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // // //             <h3 className="fw-bold text-primary">500+</h3>
+// // // //             <p>Students Trained</p>
+// // // //           </div>
+// // // //         </div>
+// // // //         <div className="col-md-4 mb-4">
+// // // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // // //             <h3 className="fw-bold text-success">95%</h3>
+// // // //             <p>Placement Success</p>
+// // // //           </div>
+// // // //         </div>
+// // // //         <div className="col-md-4 mb-4">
+// // // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // // //             <h3 className="fw-bold text-warning">25+</h3>
+// // // //             <p>Hiring Partners</p>
+// // // //           </div>
+// // // //         </div>
+// // // //       </div>
+
+// // // //       {/* Video Testimonials */}
+// // // //       <div className="row g-4 mb-5">
+// // // //         {[1, 2].map((_, index) => (
+// // // //           <div className="col-md-6" key={index}>
+// // // //             <div className="shadow-sm rounded-4 overflow-hidden">
+// // // //               <div className="ratio ratio-16x9">
+// // // //                 <iframe
+// // // //                   src="https://www.youtube.com/embed/your-video-id"
+// // // //                   title={`Success Story ${index + 1}`}
+// // // //                   allowFullScreen
+// // // //                 ></iframe>
+// // // //               </div>
+// // // //               <div className="p-3 bg-light">
+// // // //                 <h6 className="fw-bold">Anjali R. – Infosys</h6>
+// // // //                 <p className="small text-muted mb-0">“SAT Academy helped me go from beginner to a full-time developer in just 3 months.”</p>
+// // // //               </div>
+// // // //             </div>
+// // // //           </div>
+// // // //         ))}
+// // // //       </div>
+
+// // // //       {/* CTA */}
+// // // //       <div className="text-center mt-4">
+// // // //         <a href="#register" className="btn btn-primary btn-lg rounded-pill px-4">
+// // // //           Join Our Next Success Story
+// // // //         </a>
+// // // //       </div>
+// // // //     </div>
+// // // //   );
+// // // // }
+
+// // // // export default OurSuccessStories;
+
+// // // import React from 'react';
+// // // import '../Home.css';
+// // // import SplitText from '../SplitText';
+// // // import 'swiper/css';
+// // // import 'swiper/css/pagination';
+// // // import { Swiper, SwiperSlide } from 'swiper/react';
+// // // import { Pagination } from 'swiper/modules';
+
+// // // const studentStories = [
+// // //   {
+// // //     name: "Anjali R.",
+// // //     role: "Software Developer at Infosys",
+// // //     feedback: "SAT Academy helped me go from beginner to a full-time developer in just 3 months.",
+// // //     image: "/images/anjali.jpg"
+// // //   },
+// // //   {
+// // //     name: "Praveen K.",
+// // //     role: "Java Intern at TCS",
+// // //     feedback: "The practical training and mentorship I received at SAT Academy were game-changers.",
+// // //     image: "/images/praveen.jpg"
+// // //   },
+// // //   {
+// // //     name: "Divya S.",
+// // //     role: "Python Developer at Wipro",
+// // //     feedback: "Live projects gave me real-world exposure. I’m grateful for the guidance from the faculty.",
+// // //     image: "/images/divya.jpg"
+// // //   },
+// // // ];
+
+// // // function OurSuccessStories() {
+// // //   return (
+// // //     <div className="container py-5">
+// // //       {/* Section Title */}
+// // //       <div className="text-center mb-5">
+// // //         <SplitText
+// // //           text="Student Success Stories"
+// // //           className="fw-bold fs-2"
+// // //           delay={30}
+// // //           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// // //           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// // //           textAlign="center"
+// // //         />
+// // //         <p className="text-muted mt-3">
+// // //           Hear directly from our students how SAT Academy has helped them kickstart and shape their careers.
+// // //         </p>
+// // //       </div>
+
+// // //       {/* Success Metrics */}
+// // //       <div className="row text-center mb-5">
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-primary">500+</h3>
+// // //             <p>Students Trained</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-success">95%</h3>
+// // //             <p>Placement Success</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-warning">25+</h3>
+// // //             <p>Hiring Partners</p>
+// // //           </div>
+// // //         </div>
+// // //       </div>
+
+// // //       {/* Student Testimonials Carousel */}
+// // //       <div className="mb-5">
+// // //         <Swiper
+// // //           modules={[Pagination]}
+// // //           spaceBetween={30}
+// // //           pagination={{ clickable: true }}
+// // //           breakpoints={{
+// // //             640: { slidesPerView: 1 },
+// // //             768: { slidesPerView: 2 },
+// // //             1024: { slidesPerView: 3 },
+// // //           }}
+// // //         >
+// // //           {studentStories.map((story, index) => (
+// // //             <SwiperSlide key={index}>
+// // //               <div className="shadow-sm rounded-4 p-4 bg-white text-center h-100">
+// // //                 <img
+// // //                   src={story.image}
+// // //                   alt={story.name}
+// // //                   className="rounded-circle mb-3"
+// // //                   style={{ width: "80px", height: "80px", objectFit: "cover" }}
+// // //                 />
+// // //                 <h6 className="fw-bold">{story.name}</h6>
+// // //                 <p className="text-muted small mb-1">{story.role}</p>
+// // //                 <p className="small text-secondary fst-italic">"{story.feedback}"</p>
+// // //               </div>
+// // //             </SwiperSlide>
+// // //           ))}
+// // //         </Swiper>
+// // //       </div>
+
+// // //       {/* CTA */}
+// // //       <div className="text-center mt-4">
+// // //         <a href="#register" className="btn btn-primary btn-lg rounded-pill px-4">
+// // //           Be Our Next Success Story
+// // //         </a>
+// // //       </div>
+// // //     </div>
+// // //   );
+// // // }
+
+// // // export default OurSuccessStories;
+
+// // // import React from 'react';
+// // // import '../Home.css';
+// // // import SplitText from '../SplitText';
+// // // import 'swiper/css';
+// // // import 'swiper/css/pagination';
+// // // import { Swiper, SwiperSlide } from 'swiper/react';
+// // // import { Pagination } from 'swiper/modules';
+
+// // // const studentStories = [
+// // //   {
+// // //     name: "Anjali R.",
+// // //     role: "Software Developer at Infosys",
+// // //     feedback: "SAT Academy helped me go from beginner to a full-time developer in just 3 months.",
+// // //     image: "/images/anjali.jpg"
+// // //   },
+// // //   {
+// // //     name: "Praveen K.",
+// // //     role: "Java Intern at TCS",
+// // //     feedback: "The practical training and mentorship I received at SAT Academy were game-changers.",
+// // //     image: "/images/praveen.jpg"
+// // //   },
+// // //   {
+// // //     name: "Divya S.",
+// // //     role: "Python Developer at Wipro",
+// // //     feedback: "Live projects gave me real-world exposure. I’m grateful for the guidance from the faculty.",
+// // //     image: "/images/divya.jpg"
+// // //   },
+// // //   {
+// // //     name: "Rahul M.",
+// // //     role: "Frontend Developer at Cognizant",
+// // //     feedback: "The structured curriculum and career support were crucial in landing my first job.",
+// // //     image: "/images/rahul.jpg"
+// // //   },
+// // //   {
+// // //     name: "Sneha T.",
+// // //     role: "Full Stack Intern at Capgemini",
+// // //     feedback: "Mentorship and resume guidance from SAT Academy were top-notch. Thank you team!",
+// // //     image: "/images/sneha.jpg"
+// // //   },
+// // //   {
+// // //     name: "Vignesh P.",
+// // //     role: "Cloud Trainee at Tech Mahindra",
+// // //     feedback: "Trainers focused on real-time scenarios. The cloud module helped me get certified and placed.",
+// // //     image: "/images/vignesh.jpg"
+// // //   }
+// // // ];
+
+// // // function OurSuccessStories() {
+// // //   return (
+// // //     <div className="container py-5">
+// // //       {/* Section Title */}
+// // //       <div className="text-center mb-5">
+// // //         <SplitText
+// // //           text="Student Success Stories"
+// // //           className="fw-bold fs-2"
+// // //           delay={30}
+// // //           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// // //           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// // //           textAlign="center"
+// // //         />
+// // //         <p className="text-muted mt-3">
+// // //           Hear directly from our students how SAT Academy has helped them kickstart and shape their careers.
+// // //         </p>
+// // //       </div>
+
+// // //       {/* Success Metrics */}
+// // //       <div className="row text-center mb-5">
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-primary">500+</h3>
+// // //             <p>Students Trained</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-success">95%</h3>
+// // //             <p>Placement Success</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-warning">25+</h3>
+// // //             <p>Hiring Partners</p>
+// // //           </div>
+// // //         </div>
+// // //       </div>
+
+// // //       {/* Student Testimonials Carousel */}
+// // //       <div className="mb-5">
+// // //         <Swiper
+// // //           modules={[Pagination]}
+// // //           spaceBetween={30}
+// // //           pagination={{ clickable: true }}
+// // //           breakpoints={{
+// // //             640: { slidesPerView: 1 },
+// // //             768: { slidesPerView: 2 },
+// // //             1024: { slidesPerView: 3 },
+// // //           }}
+// // //         >
+// // //           {studentStories.map((story, index) => (
+// // //             <SwiperSlide key={index}>
+// // //               <div className="shadow-sm rounded-4 p-4 bg-white text-center h-100">
+// // //                 <img
+// // //                   src={story.image}
+// // //                   alt={story.name}
+// // //                   className="rounded-circle mb-3"
+// // //                   style={{ width: "80px", height: "80px", objectFit: "cover" }}
+// // //                 />
+// // //                 <h6 className="fw-bold">{story.name}</h6>
+// // //                 <p className="text-muted small mb-1">{story.role}</p>
+// // //                 <p className="small text-secondary fst-italic">"{story.feedback}"</p>
+// // //               </div>
+// // //             </SwiperSlide>
+// // //           ))}
+// // //         </Swiper>
+// // //       </div>
+
+// // //       {/* CTA */}
+// // //       <div className="text-center mt-4">
+// // //         <a href="#register" className="btn btn-primary btn-lg rounded-pill px-4">
+// // //           Be Our Next Success Story
+// // //         </a>
+// // //       </div>
+// // //     </div>
+// // //   );
+// // // }
+
+// // // export default OurSuccessStories;
+
+
+// // // import React from 'react';
+// // // import '../Home.css';
+// // // import SplitText from '../SplitText';
+// // // import 'swiper/css';
+// // // import 'swiper/css/pagination';
+// // // import 'swiper/css/navigation';
+
+// // // import { Swiper, SwiperSlide } from 'swiper/react';
+// // // import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+// // // const studentStories = [
+// // //   {
+// // //     name: "Anjali R.",
+// // //     role: "Software Developer at Infosys",
+// // //     feedback: "SAT Academy helped me go from beginner to a full-time developer in just 3 months.",
+// // //     image: "/images/anjali.jpg"
+// // //   },
+// // //   {
+// // //     name: "Praveen K.",
+// // //     role: "Java Intern at TCS",
+// // //     feedback: "The practical training and mentorship I received at SAT Academy were game-changers.",
+// // //     image: "/images/praveen.jpg"
+// // //   },
+// // //   {
+// // //     name: "Divya S.",
+// // //     role: "Python Developer at Wipro",
+// // //     feedback: "Live projects gave me real-world exposure. I’m grateful for the guidance from the faculty.",
+// // //     image: "/images/divya.jpg"
+// // //   },
+// // //   {
+// // //     name: "Rahul M.",
+// // //     role: "Frontend Developer at Cognizant",
+// // //     feedback: "The structured curriculum and career support were crucial in landing my first job.",
+// // //     image: "/images/rahul.jpg"
+// // //   },
+// // //   {
+// // //     name: "Sneha T.",
+// // //     role: "Full Stack Intern at Capgemini",
+// // //     feedback: "Mentorship and resume guidance from SAT Academy were top-notch. Thank you team!",
+// // //     image: "/images/sneha.jpg"
+// // //   },
+// // //   {
+// // //     name: "Vignesh P.",
+// // //     role: "Cloud Trainee at Tech Mahindra",
+// // //     feedback: "Trainers focused on real-time scenarios. The cloud module helped me get certified and placed.",
+// // //     image: "/images/vignesh.jpg"
+// // //   }
+// // // ];
+
+// // // function OurSuccessStories() {
+// // //   return (
+// // //     <div className="container py-5">
+// // //       {/* Section Title */}
+// // //       <div className="text-center mb-5">
+// // //         <SplitText
+// // //           text="Student Success Stories"
+// // //           className="fw-bold fs-2"
+// // //           delay={30}
+// // //           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// // //           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// // //           textAlign="center"
+// // //         />
+// // //         <p className="text-muted mt-3">
+// // //           Hear directly from our students how SAT Academy has helped them kickstart and shape their careers.
+// // //         </p>
+// // //       </div>
+
+// // //       {/* Success Metrics */}
+// // //       <div className="row text-center mb-5">
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-primary">500+</h3>
+// // //             <p>Students Trained</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-success">95%</h3>
+// // //             <p>Placement Success</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-warning">25+</h3>
+// // //             <p>Hiring Partners</p>
+// // //           </div>
+// // //         </div>
+// // //       </div>
+
+// // //       {/* Student Testimonials Carousel */}
+// // //       <div className="mb-5">
+// // //         <Swiper
+// // //           modules={[Pagination, Navigation, Autoplay]}
+// // //           slidesPerView={1}
+// // //           spaceBetween={30}
+// // //           pagination={{ clickable: true }}
+// // //           navigation
+// // //           autoplay={{ delay: 5000, disableOnInteraction: false }}
+// // //         >
+// // //           {studentStories.map((story, index) => (
+// // //             <SwiperSlide key={index}>
+// // //               <div className="shadow-sm rounded-4 p-4 bg-white text-center h-100">
+// // //                 <img
+// // //                   src={story.image}
+// // //                   alt={story.name}
+// // //                   className="rounded-circle mb-3"
+// // //                   style={{ width: "80px", height: "80px", objectFit: "cover" }}
+// // //                 />
+// // //                 <h6 className="fw-bold">{story.name}</h6>
+// // //                 <p className="text-muted small mb-1">{story.role}</p>
+// // //                 <p className="small text-secondary fst-italic">"{story.feedback}"</p>
+// // //               </div>
+// // //             </SwiperSlide>
+// // //           ))}
+// // //         </Swiper>
+// // //       </div>
+
+// // //       {/* CTA */}
+// // //       <div className="text-center mt-4">
+// // //         <a href="#register" className="btn btn-primary btn-lg rounded-pill px-4">
+// // //           Be Our Next Success Story
+// // //         </a>
+// // //       </div>
+// // //     </div>
+// // //   );
+// // // }
+
+// // // export default OurSuccessStories;
+
+
+// // // import React from 'react';
+// // // import '../Home.css';
+// // // import SplitText from '../SplitText';
+// // // import 'swiper/css';
+// // // import 'swiper/css/pagination';
+// // // import 'swiper/css/navigation';
+
+// // // import { Swiper, SwiperSlide } from 'swiper/react';
+// // // import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+// // // const studentStories = [
+// // //   {
+// // //     name: "Anjali R.",
+// // //     role: "Software Developer at Infosys",
+// // //     feedback: "SAT Academy helped me go from beginner to a full-time developer in just 3 months.",
+// // //     image: "/images/anjali.jpg"
+// // //   },
+// // //   {
+// // //     name: "Praveen K.",
+// // //     role: "Java Intern at TCS",
+// // //     feedback: "The practical training and mentorship I received at SAT Academy were game-changers.",
+// // //     image: "/images/praveen.jpg"
+// // //   },
+// // //   {
+// // //     name: "Divya S.",
+// // //     role: "Python Developer at Wipro",
+// // //     feedback: "Live projects gave me real-world exposure. I’m grateful for the guidance from the faculty.",
+// // //     image: "/images/divya.jpg"
+// // //   },
+// // //   {
+// // //     name: "Rahul M.",
+// // //     role: "Frontend Developer at Cognizant",
+// // //     feedback: "The structured curriculum and career support were crucial in landing my first job.",
+// // //     image: "/images/rahul.jpg"
+// // //   },
+// // //   {
+// // //     name: "Sneha T.",
+// // //     role: "Full Stack Intern at Capgemini",
+// // //     feedback: "Mentorship and resume guidance from SAT Academy were top-notch. Thank you team!",
+// // //     image: "/images/sneha.jpg"
+// // //   },
+// // //   {
+// // //     name: "Vignesh P.",
+// // //     role: "Cloud Trainee at Tech Mahindra",
+// // //     feedback: "Trainers focused on real-time scenarios. The cloud module helped me get certified and placed.",
+// // //     image: "/images/vignesh.jpg"
+// // //   }
+// // // ];
+
+// // // function OurSuccessStories() {
+// // //   return (
+// // //     <div className="container py-5">
+// // //       {/* Section Title */}
+// // //       <div className="text-center mb-5">
+// // //         <SplitText
+// // //           text="Student Success Stories"
+// // //           className="fw-bold fs-2"
+// // //           delay={30}
+// // //           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// // //           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// // //           textAlign="center"
+// // //         />
+// // //         <p className="text-muted mt-3">
+// // //           Hear directly from our students how SAT Academy has helped them kickstart and shape their careers.
+// // //         </p>
+// // //       </div>
+
+// // //       {/* Success Metrics */}
+// // //       <div className="row text-center mb-5">
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-primary">500+</h3>
+// // //             <p>Students Trained</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-success">95%</h3>
+// // //             <p>Placement Success</p>
+// // //           </div>
+// // //         </div>
+// // //         <div className="col-md-4 mb-4">
+// // //           <div className="p-4 shadow-sm rounded-3 h-100">
+// // //             <h3 className="fw-bold text-warning">25+</h3>
+// // //             <p>Hiring Partners</p>
+// // //           </div>
+// // //         </div>
+// // //       </div>
+
+// // //       {/* Student Testimonials Carousel */}
+// // //       <div className="mb-5 d-flex justify-content-center">
+// // //         <div style={{ maxWidth: '600px', width: '100%' }}>
+// // //           <Swiper
+// // //             modules={[Pagination, Navigation, Autoplay]}
+// // //             slidesPerView={1}
+// // //             spaceBetween={30}
+// // //             speed={800} // smooth transition
+// // //             pagination={{ clickable: true }}
+// // //             navigation
+// // //             autoplay={{ delay: 3000, disableOnInteraction: false }}
+// // //           >
+// // //             {studentStories.map((story, index) => (
+// // //               <SwiperSlide key={index}>
+// // //                 <div className="shadow-sm rounded-4 p-4 bg-white text-center">
+// // //                   <img
+// // //                     src={story.image}
+// // //                     alt={story.name}
+// // //                     className="rounded-circle mb-3"
+// // //                     style={{ width: "80px", height: "80px", objectFit: "cover" }}
+// // //                   />
+// // //                   <h6 className="fw-bold">{story.name}</h6>
+// // //                   <p className="text-muted small mb-1">{story.role}</p>
+// // //                   <p className="small text-secondary fst-italic">"{story.feedback}"</p>
+// // //                 </div>
+// // //               </SwiperSlide>
+// // //             ))}
+// // //           </Swiper>
+// // //         </div>
+// // //       </div>
+
+// // //       {/* CTA */}
+// // //       <div className="text-center mt-4">
+// // //         <a href="#register" className="btn btn-primary btn-lg rounded-pill px-4">
+// // //           Be Our Next Success Story
+// // //         </a>
+// // //       </div>
+// // //     </div>
+// // //   );
+// // // }
+
+// // // export default OurSuccessStories;
+
+// // import React from 'react';
+// // import '../Home.css';
+// // import SplitText from '../SplitText';
+// // import 'swiper/css';
+// // import 'swiper/css/pagination';
+// // import 'swiper/css/navigation';
+
+// // import { Swiper, SwiperSlide } from 'swiper/react';
+// // import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+// // const studentStories = [
+// //   {
+// //     name: "Anjali R.",
+// //     role: "Software Developer at Infosys",
+// //     feedback: "SAT Academy helped me go from beginner to a full-time developer in just 3 months.",
+// //     image: "/images/anjali.jpg"
+// //   },
+// //   {
+// //     name: "Praveen K.",
+// //     role: "Java Intern at TCS",
+// //     feedback: "The practical training and mentorship I received at SAT Academy were game-changers.",
+// //     image: "/images/praveen.jpg"
+// //   },
+// //   {
+// //     name: "Divya S.",
+// //     role: "Python Developer at Wipro",
+// //     feedback: "Live projects gave me real-world exposure. I’m grateful for the guidance from the faculty.",
+// //     image: "/images/divya.jpg"
+// //   },
+// //   {
+// //     name: "Rahul M.",
+// //     role: "Frontend Developer at Cognizant",
+// //     feedback: "The structured curriculum and career support were crucial in landing my first job.",
+// //     image: "/images/rahul.jpg"
+// //   },
+// //   {
+// //     name: "Sneha T.",
+// //     role: "Full Stack Intern at Capgemini",
+// //     feedback: "Mentorship and resume guidance from SAT Academy were top-notch. Thank you team!",
+// //     image: "/images/sneha.jpg"
+// //   },
+// //   {
+// //     name: "Vignesh P.",
+// //     role: "Cloud Trainee at Tech Mahindra",
+// //     feedback: "Trainers focused on real-time scenarios. The cloud module helped me get certified and placed.",
+// //     image: "/images/vignesh.jpg"
+// //   }
+// // ];
+
+// // function OurSuccessStories() {
+// //   return (
+// //     <div className="container py-5">
+// //       {/* Section Title */}
+// //       <div className="text-center mb-5">
+// //         <SplitText
+// //           text="Student Success Stories"
+// //           className="fw-bold fs-2"
+// //           delay={30}
+// //           animationFrom={{ opacity: 0, transform: 'translateY(20px)' }}
+// //           animationTo={{ opacity: 1, transform: 'translateY(0)' }}
+// //           textAlign="center"
+// //         />
+// //         <p className="text-muted mt-3">
+// //           Hear directly from our students how SAT Academy has helped them kickstart and shape their careers.
+// //         </p>
+// //       </div>
+
+// //       {/* Success Metrics */}
+// //       <div className="row text-center mb-5">
+// //         <div className="col-md-4 mb-4">
+// //           <div className="p-4 shadow-sm rounded-3 h-100">
+// //             <h3 className="fw-bold text-primary">500+</h3>
+// //             <p>Students Trained</p>
+// //           </div>
+// //         </div>
+// //         <div className="col-md-4 mb-4">
+// //           <div className="p-4 shadow-sm rounded-3 h-100">
+// //             <h3 className="fw-bold text-success">95%</h3>
+// //             <p>Placement Success</p>
+// //           </div>
+// //         </div>
+// //         <div className="col-md-4 mb-4">
+// //           <div className="p-4 shadow-sm rounded-3 h-100">
+// //             <h3 className="fw-bold text-warning">25+</h3>
+// //             <p>Hiring Partners</p>
+// //           </div>
+// //         </div>
+// //       </div>
+
+// //       {/* Student Testimonials Carousel */}
+// //       <div className="mb-5 d-flex justify-content-center">
+// //         <div style={{ maxWidth: '600px', width: '100%' }}>
+// //           <Swiper
+// //             modules={[Pagination, Navigation, Autoplay]}
+// //             slidesPerView={1}
+// //             spaceBetween={30}
+// //             speed={800} // smooth transition
+// //             pagination={{ clickable: true }}
+// //             navigation
+// //             autoplay={{ delay: 3000, disableOnInteraction: false }}
+// //           >
+// //             {studentStories.map((story, index) => (
+// //               <SwiperSlide key={index}>
+// //                 <div className="shadow-sm rounded-4 p-4 bg-white text-center">
+// //                   <img
+// //                     src={story.image}
+// //                     alt={story.name}
+// //                     className="rounded-circle mb-3"
+// //                     style={{ width: "80px", height: "80px", objectFit: "cover" }}
+// //                   />
+// //                   <h6 className="fw-bold">{story.name}</h6>
+// //                   <p className="text-muted small mb-1">{story.role}</p>
+// //                   <p className="small text-secondary fst-italic">"{story.feedback}"</p>
+// //                 </div>
+// //               </SwiperSlide>
+// //             ))}
+// //           </Swiper>
+// //         </div>
+// //       </div>
+
+// //       {/* CTA */}
+// //       <div className="text-center mt-4">
+// //         <a href="#register" className="btn btn-primary btn-lg rounded-pill px-4">
+// //           Be Our Next Success Story
+// //         </a>
+// //       </div>
+// //     </div>
+// //   );
+// // }
+
+// // export default OurSuccessStories;
