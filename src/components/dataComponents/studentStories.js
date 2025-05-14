@@ -34,6 +34,12 @@ const studentStories = [
     role: "Cloud Trainee at Tech Mahindra",
     feedback: "Trainers focused on real-time scenarios. The cloud module helped me get certified and placed.",
     image: "/images/vignesh.jpg"
+  },
+   {
+    name: "Teja Ansury",
+    role: "Full Satck Developer at Manva",
+    feedback: "Trainers focused on real-time scenarios. The Full Satck Development helped me get certified and placed.",
+    image: "/images/StudentTeja.jpg"
   }
 ];
 

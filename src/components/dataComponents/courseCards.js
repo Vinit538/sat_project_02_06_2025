@@ -3,7 +3,7 @@ const courseCards = [
     {
         id: "satC1",
         title: "DATA ENGINEERING",
-        image: "/images/CourseImg.jpeg",
+        image: "/images/Data_Engineering.jpeg",
         subCourses: ["DATA ENGINEERING with AWS", "DATA ENGINEERING with AZURE"],
         technologies: ["Python", "SQL", "Apache Spark", "Hadoop", "Airflow", "AWS", "Azure", "Data Warehousing"],
         duration: "3 months",
@@ -18,7 +18,7 @@ const courseCards = [
     {
         id: "satC2",
         title: "DATA ANALYST",
-        image: "https://source.unsplash.com/600x400/?data,analytics",
+        image: "/images/Data_Analyst.jpeg",
         subCourses: ["DATA ANALYST with Business Intelligence"],
         technologies: ["Excel", "SQL", "Tableau", "Power BI", "Python", "Data Visualization"],
         duration: "2.5 months",
@@ -33,7 +33,7 @@ const courseCards = [
     {
         id: "satC3",
         title: "DATABASE ADMINISTRATION",
-        image: "https://source.unsplash.com/600x400/?database,server",
+        image: "/images/Data_Adaministration.jpg",
         subCourses: [
             "DATABASE ADMINISTRATION with MS SQL",
             "DATABASE ADMINISTRATION with AZURE",
@@ -55,7 +55,7 @@ const courseCards = [
     {
         id: "satC4",
         title: "CAD DESIGNING",
-        image: "https://source.unsplash.com/600x400/?cad,design",
+        image: "/images/CadCourse.jpg",
         subCourses: [],
         technologies: ["AutoCAD", "SolidWorks", "Fusion 360", "CATIA"],
         duration: "2 months",
@@ -85,7 +85,7 @@ const courseCards = [
     {
         id: "satC6",
         title: "ARTIFICIAL INTELLIGENCE",
-        image: "https://source.unsplash.com/600x400/?artificial,intelligence",
+        image: "/images/AI.jpg",
         subCourses: [],
         technologies: ["Python", "NumPy", "Pandas", "TensorFlow", "Scikit-learn", "Neural Networks"],
         duration: "3.5 months",
@@ -100,7 +100,7 @@ const courseCards = [
     {
         id: "satC7",
         title: "SAP",
-        image: "https://source.unsplash.com/600x400/?SAP,ERP",
+        image: "/images/Sap.jpg",
         subCourses: ["SAP S/4 HANA", "SAP BW/4 HANA"],
         technologies: ["SAP FICO", "SAP HANA", "SAP ABAP", "SAP BI"],
         duration: "3 months",
