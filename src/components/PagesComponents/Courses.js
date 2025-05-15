@@ -71,7 +71,8 @@ const fadeInUp = {
 
 function Courses() {
   return (
-    <div className="courses-page bg-light py-5">
+  <div className="courses-page">
+      <div className="courses-page bg-light py-5">
       <div className="container">
         <motion.h2
           className="text-center mb-5 fw-bold"
@@ -136,6 +137,7 @@ function Courses() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
 
