@@ -2,6 +2,12 @@
     padding: 100px 50px !important;
 }
 
+@media screen and (max-width: 321px) {
+ .hire-from-us, .about-us, .internships-page, .courses-page,.projects-page,.contact-us{
+    padding: 100px 10px !important;
+}
+}
+
 .card:hover {
     transform: scale(1.02);
     transition: transform 0.2s ease-in-out;
@@ -26,6 +32,10 @@
 
 .hire-hero h1 {
   font-size: 2.5rem;
+}
+
+.hire-contact{
+  padding: 20px;
 }
 
 .hover-glow:hover {

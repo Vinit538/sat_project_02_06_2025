@@ -123,18 +123,7 @@ function OurPrograms() {
         </Swiper>
       </div>
 
-      {/* View All Courses Button */}
-      <div className="text-center mt-4">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/courses')}
-          className="btn View-btn-gradient px-4 py-2 rounded-3 fw-semibold"
-        >
-          View All Courses
-        </motion.button>
-      </div>
-
+    
 
       {/* Mobile view (stacked cards) */}
       <div className="d-md-none d-flex flex-column align-items-center gap-4 mt-4">
@@ -151,6 +140,18 @@ function OurPrograms() {
           </motion.div>
         ))}
       </div>
+        {/* View All Courses Button */}
+      <div className="text-center mt-4">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => navigate('/courses')}
+          className="btn View-btn-gradient px-4 py-2 rounded-3 fw-semibold"
+        >
+          View All Courses
+        </motion.button>
+      </div>
+
     </div>
   );
 }
