@@ -7,6 +7,7 @@ import HeroTitle from './HomeComponents/HeroTitle';
 import WhySat from './HomeComponents/WhySat';
 import OurPrograms from './HomeComponents/OurPrograms';
 import OurSuccessStories from './HomeComponents/OurSuccessStories';
+import MarqueeCourses from './HomeComponents/MarqueeCourses';
 
 function Home() {
   return (
@@ -29,15 +30,19 @@ function Home() {
       <section className="why-section py-5">
         <WhySat />
       </section>
+      
+      <section>
+        <MarqueeCourses />
+      </section>
 
       {/* Courses Section */}
       <section id="courses" className="courses-section py-5">
-       <OurPrograms />
+        <OurPrograms />
       </section>
 
       {/* Placement/Success Stories Section */}
       <section className="placement-section py-5">
-       <OurSuccessStories />
+        <OurSuccessStories />
       </section>
       <Details />
     </div>

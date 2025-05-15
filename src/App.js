@@ -1,88 +1,108 @@
-// // import logo from './logo.svg';
-// import React, { useState, useEffect } from 'react';
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-// import './App.css';
 
-
-// import Navbar from './components/Navbar';
-// import Home from './components/Home';
+// import React, { useEffect, useState } from 'react';
+// import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+// import PageLoader from './components/PageLoader'; // 👈
+// import Navbar from './components/navbarComponents/Navbar';
 // import Footer from './components/Footer';
-// import SatLogin from './components/SatLogin';
-// import HireTalent from './components/HireTalent';
-// import ContactUs from './components/ContactUs';
-// import Career from './components/Career';
-// import AboutUs from './components/AboutUs';
-// import Courses from './components/Courses';
-// import Projects from './components/Projects';
-// import Internships from './components/Internships';
-
-// import ScrollToTop from "./ScrollToTop";
+// import ScrollToTop from './ScrollToTop';
 // import ScrollIndicator from './ScrollIndicator';
 
+// // Pages
+// import Home from './components/Home';
+// import SatLogin from './components/SatLogin';
+// import HireTalent from './components/PagesComponents/HireTalent';
+// import ContactUs from './components/PagesComponents/ContactUs';
+// import Career from './components/PagesComponents/Career';
+// import AboutUs from './components/PagesComponents/AboutUs';
+// import Courses from './components/PagesComponents/Courses';
+// import Projects from './components/PagesComponents/Projects';
+// import Internships from './components/PagesComponents/Internships';
+// import JavaFullStack from './components/courseComponents/JavaFullStack';
+// // ... others
 
+// const AppContent = () => {
+//   const location = useLocation();
+//   const [loading, setLoading] = useState(true);
 
-// function App() {
+//   useEffect(() => {
+//     // Simulate a delay (e.g., fetching page data)
+//     const timer = setTimeout(() => {
+//       setLoading(false);
+//     }, 1000); // 1s delay
 
-
-//   const [isOpen, setIsOpen] = useState(false);
-
+//     return () => clearTimeout(timer);
+//   }, [location]);
 
 //   return (
-//     <Router>
-//       {/* <ScrollIndicator color="#4f46e5" /> */}
-//       <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
-//       <ScrollToTop />
-//       <Routes>
-//         <Route path='/' element={<Home isOpen={isOpen} />} />
-//         <Route path='/satLogin' element={<SatLogin />} />
-//         <Route path='/hireTalent' element={<HireTalent />} />
-//         <Route path='/contactUs' element={<ContactUs />} />
-//         <Route path='/career' element={<Career />} />
-//         <Route path='/aboutUs' element={<AboutUs />} />
-//         <Route path='/courses' element={<Courses />} />
-//         <Route path='/projects' element={<Projects />} />
-//         <Route path='/internships' element={<Internships />} />
-//       </Routes>
-//       {/* <Details /> */}
-//       <Footer />
+//     <>
+//       {loading && <PageLoader />}
+//       {!loading && (
+//         <>
+//           <ScrollIndicator color="#4f46e5" />
+//           <Navbar />
+//           <ScrollToTop />
+//           <Routes>
+//             <Route path="/" element={<Home />} />
+//             <Route path="/satLogin" element={<SatLogin />} />
+//             <Route path="/hireTalent" element={<HireTalent />} />
+//             <Route path='/contactUs' element={<ContactUs />} />
+//             <Route path='/career' element={<Career />} />
+//             <Route path='/aboutUs' element={<AboutUs />} />
+//             <Route path='/courses' element={<Courses />} />
+//             <Route path='/projects' element={<Projects />} />
+//             <Route path='/internships' element={<Internships />} />
+//             <Route path="/courses/java-fullstack" element={<JavaFullStack />} />
+//           </Routes>
+//           <Footer />
+//         </>
+//       )}
+//     </>
+//   );
+// };
 
+// function App() {
+//   return (
+//     <Router>
+//       <AppContent />
 //     </Router>
 //   );
 // }
 
 // export default App;
 
-import React, { useEffect, useState } from 'react';
+
+// src/App.js
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import PageLoader from './components/PageLoader'; // 👈
+import { AnimatePresence } from 'framer-motion';
+
+// Components
+import PageLoader from './components/PageLoader';
 import Navbar from './components/navbarComponents/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import ScrollIndicator from './ScrollIndicator';
 
-// Pages
+// Regular Pages
 import Home from './components/Home';
 import SatLogin from './components/SatLogin';
 import HireTalent from './components/PagesComponents/HireTalent';
 import ContactUs from './components/PagesComponents/ContactUs';
 import Career from './components/PagesComponents/Career';
 import AboutUs from './components/PagesComponents/AboutUs';
-import Courses from './components/PagesComponents/Courses';
 import Projects from './components/PagesComponents/Projects';
 import Internships from './components/PagesComponents/Internships';
 import JavaFullStack from './components/courseComponents/JavaFullStack';
-// ... others
+
+// ✅ Lazy load Courses page
+const Courses = lazy(() => import('./components/PagesComponents/Courses'));
 
 const AppContent = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a delay (e.g., fetching page data)
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000); // 1s delay
-
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, [location]);
 
@@ -94,18 +114,22 @@ const AppContent = () => {
           <ScrollIndicator color="#4f46e5" />
           <Navbar />
           <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/satLogin" element={<SatLogin />} />
-            <Route path="/hireTalent" element={<HireTalent />} />
-            <Route path='/contactUs' element={<ContactUs />} />
-            <Route path='/career' element={<Career />} />
-            <Route path='/aboutUs' element={<AboutUs />} />
-            <Route path='/courses' element={<Courses />} />
-            <Route path='/projects' element={<Projects />} />
-            <Route path='/internships' element={<Internships />} />
-            <Route path="/courses/java-fullstack" element={<JavaFullStack />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <Suspense fallback={<PageLoader />}>
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/satLogin" element={<SatLogin />} />
+                <Route path="/hireTalent" element={<HireTalent />} />
+                <Route path="/contactUs" element={<ContactUs />} />
+                <Route path="/career" element={<Career />} />
+                <Route path="/aboutUs" element={<AboutUs />} />
+                <Route path="/courses" element={<Courses />} /> {/* 👈 Lazy loaded */}
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/internships" element={<Internships />} />
+                <Route path="/courses/java-fullstack" element={<JavaFullStack />} />
+              </Routes>
+            </Suspense>
+          </AnimatePresence>
           <Footer />
         </>
       )}

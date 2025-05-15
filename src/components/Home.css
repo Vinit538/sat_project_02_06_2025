@@ -1,5 +1,4 @@
 .mainbody {
-  /* background: none !important; */
   background-color: #F9F7F3 !important;
   margin: 0 0px !important;
 }
@@ -15,7 +14,7 @@ section {
 
 .hero-section {
   min-height: 100vh;
-  
+
   background-color: #F9F7F3;
   color: #1b4f72;
   justify-content: space-between !important;
@@ -68,7 +67,7 @@ section {
   background: #356e6e !important;
 } */
 
-.input-colored {
+/* .input-colored {
   background-color: #ecf0f1 !important;
   border: 1px solid #1b4366;
   padding: 0.5rem;
@@ -79,7 +78,7 @@ section {
   background-color: #ecf0f1 !important;
   border-color: #1b4366;
   outline: none;
-}
+} */
 
 .form-check-input {
   background-color: #007bff;
@@ -150,6 +149,32 @@ section {
 }
 
 
+.input-colored {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.input-colored:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+
+.registerBtn {
+  background-color: #0d6efd !important;
+  color: white !important;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.registerBtn:hover {
+  background-color: #0b5ed7 !important;
+}
+
+
+/* 
 .registerBtn {
   border: 1px solid #4f46e5 !important;
   border-radius: 5px;
@@ -160,7 +185,7 @@ section {
 .registerBtn:hover {
   color: #f9f7f3 !important;
   box-shadow: 0 0 20px aquamarine;
-}
+} */
 
 
 
@@ -298,17 +323,30 @@ section {
 
 
 
+.ourProgramsHeading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  /* color: #1b4f72; */
+  color: #0b182d;
+  font-display: swap;
+}
+
+
+
 
 .card-title {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
+  color: #000000;
 }
 
 .subHeading {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
+  color: #000000;
 }
 
 .card-text {
@@ -370,6 +408,7 @@ section {
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 5px !important;
 }
 
 .course-card:hover {
@@ -379,50 +418,63 @@ section {
 
 .card-title {
   font-weight: 600;
+  color: #000000;
+
 }
 
 .card-text {
   font-size: 0.9rem;
-  color: #555;
+  color: #000000;
 }
 
 .hide-scrollbar {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-.marquee-track {
-  width: max-content;
-  white-space: nowrap;
-  animation: scroll-marquee 20s linear infinite;
+  display: none;
 }
 
-.marquee-track:hover {
-  animation-play-state: paused;
+
+.program-card {
+  height: 100%;
+  min-height: 320px;
 }
 
-@keyframes scroll-marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track .btn {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.marquee-track .btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0.5rem 1rem rgba(0, 123, 255, 0.2);
-  background-color: #007bff;
+
+.View-btn-gradient {
+  background: linear-gradient(135deg, #6f42c1, #0dcaf0);
   color: white;
-  border-color: #007bff;
+  border: none;
+  transition: background 0.3s ease !important;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.6s !important;
+  background-size: 200% auto;
+  color: white !important;
+  border-radius: 10px;
+  display: block;
+  width: 200px;
 }
+
+.View-btn-gradient:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 20px #000000;
+}
+
+
+
+
+
+
+
+
 
 .swiper-nav-btn {
   z-index: 10;
@@ -437,6 +489,6 @@ section {
   justify-content: center;
 }
 
-.studentStoryImg{
-  border: 2px solid #007bff ;
+.studentStoryImg {
+  border: 2px solid #007bff;
 }
