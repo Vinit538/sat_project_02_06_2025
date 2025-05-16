@@ -12,9 +12,20 @@ section {
   /* Top/Bottom and Side padding */
 }
 
+@media (max-width: 321px) {
+ section{
+  padding: 40px 10px !important;
+ }
+ .hero-section{
+  padding: 50px 10px !important;
+ }
+ 
+}
+
+
 .hero-section {
   min-height: 100vh;
-
+  /* padding: 100px 10px; */
   background-color: #F9F7F3;
   color: #1b4f72;
   justify-content: space-between !important;
