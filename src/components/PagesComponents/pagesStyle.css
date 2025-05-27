@@ -1,40 +1,259 @@
-.hire-from-us, .about-us, .internships-page, .courses-page,.projects-page,.contact-us{
-    padding: 100px 50px !important;
+.hire-from-us,
+.about-us,
+.internships-page,
+.courses-page,
+.projects-page,
+.contact-us {
+  padding: 100px 50px !important;
 }
 
 @media screen and (max-width: 321px) {
- .hire-from-us, .about-us, .internships-page, .courses-page,.projects-page,.contact-us{
+  .hire-from-us,
+  .about-us,
+  .internships-page,
+  .courses-page,
+  .projects-page,
+  .contact-us {
     padding: 100px 10px !important;
+  }
 }
+@media screen and (max-width: 320px) {
+
+  .courses-hero{
+    text-align: left !important;
+    padding: 15px !important;
+  }
+  
+}
+@media screen and (min-width: 320px) and (max-width:425px){
+
+  .courses-hero{
+    text-align: left !important;
+    padding: 20px !important;
+  }
+}
+/* Container styles */
+.courses-page {
+  background: linear-gradient(to right, #f0f4ff, #e6f7f1);
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.card:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .card-img-top {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-  
-  .course-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 1rem;
-  overflow: hidden;
+/* Hero Section */
+.courses-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.courses-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.courses-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+
+.course-card {
   background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem;
+  height: 100%;
+  min-height: 540px; /* Ensures all cards are the same height */
+  transition: transform 0.3s ease;
 }
 
 .course-card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
+
+/* Image Wrapper */
+
+.course-img-wrapper {
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.course-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.course-img-wrapper:hover img {
+  transform: scale(1.08);
+}
+
+/* Card Body */
+
+.course-body {
+  background: linear-gradient(to bottom, #fdfdfd, #f3fef5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0C2340 !important;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: black !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.8rem;
+}
+
+.course-body p {
+  font-size: 0.9rem;
+  color: black;
+  margin-bottom: 0.4rem;
+}
+
+.course-body strong {
+  color: #008080;
+}
+
+/* Fee Styling */
+.course-fee {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.discounted {
+  text-decoration: line-through;
+  color: #9e9e9e;
+  margin-left: 0.5rem;
+}
+
+.actual {
+  color: #388e3c;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* .emi-line {
+  display: block;
+  margin-top: 4px;
+} */
+
+.badge-emi {
+  background-color: #ffeb3b;
+  color: #000;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+
+
+/* course-icon */
+.course-icon {
+  font-size: 15px;
+  color: #000428;
+}
+
+/* EMI Badge */
+
+/* Buttons */
+
+.view-details-btn {
+  background-image: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+}
+
+.view-details-btn {
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s !important;
+  background-size: 200% auto;
+  color: white !important;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.view-details-btn:hover {
+  background-position: center !important;
+  color: #fff;
+  transform: scale(1.03);
+  transition: 0.5s !important;
+  text-decoration: none;
+}
+
+.downlode-brochure-btn {
+  border: 2px solid #007bff !important;
+  transition: 0.5s !important;
+  font-weight: 500 !important;
+}
+.downlode-brochure-btn:hover {
+  background-color: #AFDBF5 !important;
+  transform: scale(1.03);
+  transition: 0.5s !important;
+}
+
+.course-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .courses-title {
+    font-size: 2rem;
+  }
+
+  .courses-subtitle {
+    font-size: 1rem;
+  }
+
+  .course-img-wrapper {
+    height: 180px;
+  }
+
+  .course-actions {
+    flex-direction: column;
+  }
+
+  .course-actions .btn {
+    font-size: 0.85rem;
+  }
+}
+
 
 
 .hire-hero h1 {
   font-size: 2.5rem;
 }
 
-.hire-contact{
+.hire-contact {
   padding: 20px;
 }
 
@@ -308,10 +527,12 @@
   text-align: center;
   margin-bottom: 4rem;
 }
+
 .career-hero h1 {
   font-size: 3rem;
   color: #0b3d91;
 }
+
 .career-hero p {
   font-size: 1.2rem;
   color: #555;
@@ -323,12 +544,14 @@
   margin-bottom: 2rem;
   text-align: center;
 }
+
 .positions-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
+
 .career-card {
   background: #fff;
   padding: 1.5rem;
@@ -338,14 +561,17 @@
   text-align: center;
   transition: all 0.3s ease;
 }
+
 .career-icon {
   font-size: 2.5rem;
   color: #0b3d91;
   margin-bottom: 1rem;
 }
+
 .career-card h4 {
   color: #222;
 }
+
 .btn-apply {
   margin-top: 1rem;
   display: inline-block;
@@ -356,6 +582,7 @@
   border-radius: 6px;
   transition: background 0.3s;
 }
+
 .btn-apply:hover {
   background-color: #08307a;
 }
@@ -365,6 +592,7 @@
   margin: 4rem 0;
   text-align: center;
 }
+
 .testimonial {
   max-width: 600px;
   margin: auto;
@@ -380,6 +608,7 @@
   text-align: center;
   margin: 4rem 0;
 }
+
 .team-image {
   max-width: 100%;
   margin-top: 1rem;
@@ -394,15 +623,18 @@
   max-width: 600px;
   margin: auto;
 }
+
 .career-apply h2 {
   text-align: center;
   margin-bottom: 1.5rem;
 }
+
 .career-apply form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 .career-apply input,
 .career-apply textarea {
   padding: 0.75rem;
@@ -410,6 +642,7 @@
   border-radius: 6px;
   font-size: 1rem;
 }
+
 .career-apply button {
   background-color: #0b3d91;
   color: white;
@@ -420,6 +653,7 @@
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .career-apply button:hover {
   background-color: #08307a;
 }
@@ -450,10 +684,12 @@
   text-align: center;
   margin-bottom: 4rem;
 }
+
 .contact-hero h1 {
   font-size: 3rem;
   color: #0b3d91;
 }
+
 .contact-hero p {
   font-size: 1.2rem;
   color: #555;
@@ -463,12 +699,14 @@
 .contact-info {
   margin-bottom: 4rem;
 }
+
 .info-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
+
 .info-card {
   background: #fff;
   padding: 1.5rem;
@@ -478,14 +716,17 @@
   text-align: center;
   transition: transform 0.3s ease;
 }
+
 .info-card:hover {
   transform: translateY(-5px);
 }
+
 .info-icon {
   font-size: 2rem;
   color: #0b3d91;
   margin-bottom: 1rem;
 }
+
 .info-card h5 {
   color: #222;
   margin-bottom: 0.5rem;
@@ -500,15 +741,18 @@
   margin: auto;
   margin-bottom: 4rem;
 }
+
 .contact-form h2 {
   text-align: center;
   margin-bottom: 1.5rem;
 }
+
 .contact-form form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 .contact-form input,
 .contact-form textarea {
   padding: 0.75rem;
@@ -516,6 +760,7 @@
   border-radius: 6px;
   font-size: 1rem;
 }
+
 .contact-form button {
   background-color: #0b3d91;
   color: white;
@@ -526,6 +771,7 @@
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .contact-form button:hover {
   background-color: #08307a;
 }
@@ -534,16 +780,19 @@
 .map-section {
   text-align: center;
 }
+
 .map-section h4 {
   margin-bottom: 1rem;
   color: #0b3d91;
 }
+
 .map-responsive {
   overflow: hidden;
   padding-bottom: 56.25%;
   position: relative;
   height: 0;
 }
+
 .map-responsive iframe {
   left: 0;
   top: 0;
@@ -642,4 +891,15 @@ about-us-container {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.is-invalid {
+  border-color: red;
+}
+
+.text-danger {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }

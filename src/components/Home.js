@@ -18,7 +18,7 @@ function Home() {
         <div className="row">
           <HeroTitle />
           <div className="col-md-6 custom_registerBoxOuter ">
-            <div className="card p-4 shadow-lg p-3 mb-5 bg-body rounded custom_registerBoxInner">
+            <div className="card shadow-lg bg-body rounded custom_registerBoxInner">
               <h3 className="mb-4 text-left fromHeadingText">Register Now and Begin Your Learning Journey!</h3>
               <UserForm />
             </div>
@@ -27,21 +27,21 @@ function Home() {
       </section>
 
       {/* Why SAT Academy Section */}
-      <section className="why-section py-5">
+      <section className="why-section">
         <WhySat />
       </section>
-      
-      <section>
+
+      <section className='marquee-section'>
         <MarqueeCourses />
       </section>
 
       {/* Courses Section */}
-      <section id="courses" className="courses-section py-5">
+      <section id="courses" className="courses-section">
         <OurPrograms />
       </section>
 
       {/* Placement/Success Stories Section */}
-      <section className="placement-section py-5">
+      <section className="placement-section">
         <OurSuccessStories />
       </section>
       <Details />

@@ -93,7 +93,8 @@ import AboutUs from './components/PagesComponents/AboutUs';
 import Projects from './components/PagesComponents/Projects';
 import Internships from './components/PagesComponents/Internships';
 import JavaFullStack from './components/courseComponents/JavaFullStack';
-
+import TeamPage from './components/PagesComponents/TeamPage';
+// import Courses from './components/PagesComponents/Courses';
 // ✅ Lazy load Courses page
 const Courses = lazy(() => import('./components/PagesComponents/Courses'));
 
@@ -127,6 +128,7 @@ const AppContent = () => {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/internships" element={<Internships />} />
                 <Route path="/courses/java-fullstack" element={<JavaFullStack />} />
+                <Route path="/teamPage" element={<TeamPage />} />
               </Routes>
             </Suspense>
           </AnimatePresence>
@@ -141,6 +143,7 @@ function App() {
   return (
     <Router>
       <AppContent />
+    {/* <PageLoader /> */}
     </Router>
   );
 }

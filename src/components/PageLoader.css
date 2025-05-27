@@ -1,11 +1,10 @@
-/* src/components/PageLoader.css */
-.page-loader {
+/* .page-loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: white; /* or your brand color */
+    background-color: white; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,4 +29,372 @@
   @keyframes fadeOut {
     to { opacity: 0; visibility: hidden; }
   }
-  
+   */
+/* 
+
+  .page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0f172a; 
+  overflow: hidden;
+}
+
+.sat-svg {
+  width: 90%;
+  max-width: 800px;
+  height: 200px;
+}
+
+.sat-text {
+  font-size: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  fill: none;
+  stroke: #00b4d8; 
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawText 3s ease forwards, glow 2s ease-in-out infinite;
+}
+
+@keyframes drawText {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    stroke: #00b4d8;
+    filter: drop-shadow(0 0 4px #00b4d8) drop-shadow(0 0 8px #00b4d8);
+  }
+  50% {
+    stroke: #90e0ef;
+    filter: drop-shadow(0 0 6px #90e0ef) drop-shadow(0 0 12px #90e0ef);
+  }
+} */
+
+
+/* .page-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  overflow: hidden;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sat-svg {
+  width: 90%;
+  max-width: 800px;
+  height: 200px;
+}
+
+.sat-text {
+  font-size: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  fill: none;
+  stroke: url(#blueGradient);
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawText 2.5s ease forwards, glow 2s ease-in-out infinite;
+  text-align: center;
+}
+
+@keyframes drawText {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px #4f46e5) drop-shadow(0 0 5px #60a5fa);
+  }
+  50% {
+    filter: drop-shadow(0 0 5px #3b82f6) drop-shadow(0 0 8px #93c5fd);
+  }
+}
+
+.tagline {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #4f46e5;
+  font-weight: 500;
+  animation: fadeInUp 2s ease 1s forwards;
+  opacity: 0;
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} */
+
+/* Responsive tweaks */
+/* @media (max-width: 600px) {
+  .sat-text {
+    font-size: 40px;
+  }
+  .tagline {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+} */
+
+
+
+.page-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  overflow: hidden;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sat-svg {
+  width: 90%;
+  max-width: 800px;
+  height: 200px;
+}
+
+.sat-text {
+  font-size: 120px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  fill: none;
+  stroke: url(#blueGradient);
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawText 2.5s ease forwards, glow 2s ease-in-out infinite;
+}
+
+@keyframes drawText {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px #4f46e5) drop-shadow(0 0 5px #60a5fa);
+  }
+  50% {
+    filter: drop-shadow(0 0 5px #3b82f6) drop-shadow(0 0 8px #93c5fd);
+  }
+}
+
+.tagline {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #4f46e5;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInUp 2s ease 1.2s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 200px;
+  height: 6px;
+  background-color: #e0e7ff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #4f46e5, #3b82f6);
+  animation: fillBar 3s linear forwards;
+}
+
+@keyframes fillBar {
+  to {
+    width: 100%;
+  }
+}
+
+/* Spinner */
+.spinner {
+  margin-top: 30px;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e7ff;
+  border-top: 4px solid #4f46e5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+/* @media (max-width: 600px) {
+  .sat-text {
+    font-size: 40px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .progress-bar {
+    width: 150px;
+  }
+
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+} */
+
+@media (max-width:320px){
+  .sat-text{
+    font-size: 120px !important;
+    /* padding: 10px; */
+  }
+   .tagline {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .progress-bar {
+    width: 150px;
+  }
+
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+}
+
+@media screen and (max-width:425px) and (min-width: 321px){
+  .sat-text{
+    font-size: 120px !important;
+    /* padding: 10px; */
+  }
+   .tagline {
+    font-size: 30px !important;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .progress-bar {
+    width: 150px;
+  }
+
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+}
+
+@media screen and (max-width:768px) and (min-width: 426px){
+  .sat-text{
+    font-size: 120px !important;
+  }
+   .tagline {
+    font-size: 40px;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .progress-bar {
+    width: 150px;
+  }
+
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+}
+
+@media screen and (max-width:425px) and (min-width: 321px){
+  .sat-text{
+    font-size: 120px !important;
+    /* padding: 10px; */
+  }
+   .tagline {
+    font-size: 30px !important;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .progress-bar {
+    width: 150px;
+  }
+
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+}
+
+@media screen and (max-width:1024px) and (min-width: 769px){
+  .sat-text{
+    font-size: 120px !important;
+  }
+   .tagline {
+    font-size: 40px;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .progress-bar {
+    width: 150px;
+  }
+
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+}

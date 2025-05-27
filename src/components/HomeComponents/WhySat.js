@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Home.css';
-import SplitText from '../animationComponents/SplitText';
 import { motion } from 'framer-motion';
 import { FaChalkboardTeacher, FaHandshake, FaLaptopCode, FaClock, FaCertificate } from 'react-icons/fa';
 
@@ -39,7 +38,7 @@ function WhySat() {
         </motion.div>
 
         {/* Guaranteed Placements */}
-        <motion.div
+        {/* <motion.div
           className="col-md-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,8 +54,24 @@ function WhySat() {
               </p>
             </div>
           </div>
+        </motion.div> */}
+  <motion.div
+          className="col-md-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
+          <div className="card h-100 shadow-sm">
+            <div className="card-body text-center">
+              <FaHandshake size={40} className="mb-3 text-success" />
+              <h5 className="card-title">Unlimited Placement Support</h5>
+              <p className="card-text">
+              We stay with you until you succeed — offering resume building, mock interviews, job referrals, and access to ongoing recruitment drives.
+              </p>
+            </div>
+          </div>
         </motion.div>
-
         {/* Hands-on Projects */}
         <motion.div
           className="col-md-4"

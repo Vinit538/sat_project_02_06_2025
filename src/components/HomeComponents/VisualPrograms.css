@@ -1,0 +1,253 @@
+/* VisualPrograms.css */
+
+.containerVisualPrograms {
+  padding: 2rem 1rem;
+  background: linear-gradient(to right, #f9f9f9, #f1f7ff);
+  border-radius: 20px;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #005bea, #00c6fb);
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: transparent;
+}
+
+.description-text {
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Visual Card Styles */
+.visual-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  cursor: pointer;
+}
+
+.visual-card:hover {
+  background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icon-wrapper {
+  background: #e8f0fe;
+  border-radius: 50%;
+  padding: 1rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  transition: background 0.3s ease;
+}
+
+.visual-card:hover .icon-wrapper {
+  background: #d0e3ff;
+}
+
+.visual-icon {
+  color: #005bea;
+}
+
+.visual-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.visual-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.nav-arrow.left {
+  left: -20px;
+}
+
+.nav-arrow.right {
+  right: -20px;
+}
+
+.nav-arrow:hover {
+  background: #e1ecff;
+}
+
+/* Explore Button */
+.explore-btn {
+  background: linear-gradient(to right, #005bea, #00c6fb);
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 102, 255, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.explore-btn:hover {
+  background: linear-gradient(to right, #0040c1, #009adf);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .visual-card {
+    margin-bottom: 1rem;
+  }
+
+  .nav-arrow.left {
+    left: 0;
+  }
+
+  .nav-arrow.right {
+    right: 0;
+  }
+}
+/* // OurPrograms.js
+import React, { useRef } from 'react';
+import courses from '../dataComponents/courseCards';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FaLaptopCode, FaDatabase, FaCloud, FaRobot } from 'react-icons/fa';
+import '../VisualPrograms.css';
+
+const iconMap = [FaLaptopCode, FaDatabase, FaCloud, FaRobot];
+
+const CourseCard = ({ title, description, onClick, index }) => {
+  const IconComponent = iconMap[index % iconMap.length];
+  return (
+    <motion.div
+      className="visual-card"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 300 }}
+      onClick={onClick}
+    >
+      <div className="visual-card-body">
+        <div className="icon-wrapper">
+          <IconComponent size={40} className="visual-icon" />
+        </div>
+        <motion.h5
+          className="visual-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 * index, duration: 0.5 }}
+        >
+          {title}
+        </motion.h5>
+        <motion.p
+          className="visual-desc"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.1 * index + 0.3, duration: 0.4 }}
+        >
+          {description}
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+};
+
+function OurPrograms() {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+  const swiperRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleNavigate = () => navigate('/courses');
+
+  return (
+    <div className="containerVisualPrograms">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="text-center mb-5"
+      >
+        <h2 className="fw-bold fs-1 text-gradient">Our Visual Programs</h2>
+        <p className="lead description-text">
+          Browse our innovative and engaging career programs powered by visual storytelling,
+          real-world skills, and interactive learning experiences.
+        </p>
+      </motion.div>
+
+      <div className="d-none d-md-block position-relative">
+        <Swiper
+          ref={swiperRef}
+          modules={[Navigation, Autoplay]}
+          spaceBetween={30}
+          loop={true}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            576: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 },
+          }}
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
+        >
+          {courses.map((course, index) => (
+            <SwiperSlide key={course.id}>
+              <CourseCard
+                title={course.title}
+                description={course.technologies.join(', ')}
+                index={index}
+                onClick={handleNavigate}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <motion.button ref={prevRef} className="nav-arrow left">
+          <FiChevronLeft size={24} />
+        </motion.button>
+        <motion.button ref={nextRef} className="nav-arrow right">
+          <FiChevronRight size={24} />
+        </motion.button>
+      </div>
+
+      <div className="text-center mt-5">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={handleNavigate}
+          className="btn explore-btn px-4 py-2 rounded-pill"
+        >
+          View All Courses
+        </motion.button>
+      </div>
+    </div>
+  );
+}
+
+export default OurPrograms; */

@@ -9,23 +9,12 @@ html {
 
 section {
   padding: 100px 50px;
-  /* Top/Bottom and Side padding */
 }
 
-@media (max-width: 321px) {
- section{
-  padding: 40px 10px !important;
- }
- .hero-section{
-  padding: 50px 10px !important;
- }
- 
-}
 
 
 .hero-section {
   min-height: 100vh;
-  /* padding: 100px 10px; */
   background-color: #F9F7F3;
   color: #1b4f72;
   justify-content: space-between !important;
@@ -37,12 +26,10 @@ section {
 
 .introDivHeading {
   font-family: "Open Sans", sans-serif;
-  /* font-size: 75px !important; */
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 200;
   font-variation-settings: "wdth" 100;
-  /* font-size: clamp(24px, 5vw, 48px); */
 }
 
 .introDivCompanyText {
@@ -73,23 +60,6 @@ section {
 .radioButtonTech {
   margin-top: 10px !important;
 }
-
-/* .fromInputBox{
-  background: #356e6e !important;
-} */
-
-/* .input-colored {
-  background-color: #ecf0f1 !important;
-  border: 1px solid #1b4366;
-  padding: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-.input-colored:focus {
-  background-color: #ecf0f1 !important;
-  border-color: #1b4366;
-  outline: none;
-} */
 
 .form-check-input {
   background-color: #007bff;
@@ -185,34 +155,17 @@ section {
 }
 
 
-/* 
-.registerBtn {
-  border: 1px solid #4f46e5 !important;
-  border-radius: 5px;
-  background-color: #4f46e5 !important;
-  color: #000 !important;
-}
-
-.registerBtn:hover {
-  color: #f9f7f3 !important;
-  box-shadow: 0 0 20px aquamarine;
-} */
 
 
 
 
 /* why Sat Section */
 
-/* .split-parent span {
-  font-weight: bold;
-  transition: all 0.6s ease-out;
-} */
 
 .whySatText {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  /* color: #1b4f72; */
   color: #0b182d;
   font-display: swap;
 }
@@ -228,20 +181,11 @@ section {
 
 .why-section .card:hover {
   transform: translateY(-8px);
-  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
   transition: all 0.3s ease;
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15); */
 }
 
-
-/* .courses-section .course-card {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.courses-section .course-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-} */
 
 .success-box {
   background: #f8f9fa;
@@ -262,60 +206,6 @@ section {
   font-weight: bold;
 }
 
-
-
-
-
-
-
-
-/* Responsive Scren Width */
-
-
-
-
-@media screen and (max-width: 768px) and (min-width: 425px) {
-  .custom_registerBoxInner {
-    margin: 0px 5px;
-    padding: 20px !important;
-
-  }
-}
-
-@media screen and (max-width: 424px) and (min-width: 321px) {
-  .custom_registerBoxInner {
-    margin: 0px 5px;
-    padding: 10px !important;
-
-  }
-
-  section {
-    padding: 100px 15px;
-  }
-}
-
-@media screen and (max-width: 321px) {
-  .custom_registerBoxInner {
-    margin: 0px 0px;
-    padding: 20px !important;
-
-  }
-
-  section {
-    padding: 100px 5px;
-  }
-
-  .intro_Div {
-    margin: 10px !important;
-    padding-top: 25px !important;
-  }
-
-  .introDivText {
-    padding: 10px !important;
-    margin: 5px;
-  }
-}
-
 .Toastify__toast-container {
   padding: 0 !important;
   margin: 0 !important;
@@ -332,7 +222,16 @@ section {
   padding: 0px !important;
 }
 
+/* marquee-section */
+.marquee-section {
+  padding: 20px 10px !important;
+}
 
+/* Courses Section */
+
+.courses-section {
+  padding: 20px 10px !important;
+}
 
 .ourProgramsHeading {
   font-family: "Poppins", sans-serif;
@@ -343,26 +242,26 @@ section {
   font-display: swap;
 }
 
-
-
-
 .card-title {
   font-family: "Poppins", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
-  color: #000000;
+  font-optical-sizing: auto;
+  color: #000428;
 }
 
 .subHeading {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
-  color: #000000;
+  font-weight: 500;
+  color: #1f75fe !important;
+  ;
 }
 
 .card-text {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
+  color: #0076CE !important;
 }
 
 
@@ -481,25 +380,239 @@ section {
 
 
 
-
-
-
-
-
-
-.swiper-nav-btn {
-  z-index: 10;
+/*  Placement/Success Stories Section */
+/* Gradient Heading */
+.text-gradient {
+  background: linear-gradient(to right, #007cf0, #00dfd8);
+  /* -webkit-background-clip: text; */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.swiper-nav-btn button {
-  width: 40px;
-  height: 40px;
+/* Subtext Animation */
+.text-fade {
+  color: #666;
+  animation: fadeInText 2s ease-in-out;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Metric Card Hover */
+.metric-card {
+  transition: transform 0.3s !important;
+  color: inherit;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 0px 20px aqua !important;
+  color: #003153 !important;
+  transition: transform 0.3s !important;
+}
+.metric-card:hover * {
+  color: #003153 !important;
+}
+
+/* Visual Story Card */
+.visual-card {
+  background: linear-gradient(145deg, #f4f8ff, #ffffff);
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visual-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Story Content */
+.story-name {
+  font-weight: bold;
   font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: "Poppins", sans-serif;
 }
 
-.studentStoryImg {
-  border: 2px solid #007bff;
+.story-role {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.story-feedback {
+  font-style: italic;
+  font-family: "Roboto", sans-serif;
+  color: #444;
+}
+
+/* CTA Hover */
+.glow-on-hover:hover {
+  box-shadow: 0 0 10px #007bff, 0 0 20px #007bff;
+  transform: translateY(-2px);
+}
+
+
+
+/* Responsive Scren Width */
+
+@media screen and (max-width: 320px) {
+
+  /* Home Hero Text */
+
+  section {
+    padding: 40px 10px !important;
+  }
+
+  .hero-section {
+    padding-top: 80px !important;
+    padding-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .intro_Div {
+    padding-top: 20px !important;
+  }
+
+  .introDivText {
+    padding: 5px;
+  }
+
+
+ 
+
+  .custom_registerBoxInner {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    padding: 10px;
+  }
+
+
+
+  .custom_registerBoxOuter,
+  .form_box {
+    padding: 5px !important;
+  }
+
+
+
+  /* Home Why Section */
+  .why-section {
+    padding-top: 40px !important;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Marquee Section */
+  .marquee-section {
+    padding: 20px;
+  }
+
+  /* courses-section */
+  .courses-section {
+    padding: 20px 10px;
+  }
+
+}
+
+@media screen and (max-width: 425px) and (min-width: 321px) {
+
+  /* Home Hero Text */
+
+
+  .hero-section {
+    padding-top: 80px !important;
+    padding-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .intro_Div {
+    padding-top: 20px !important;
+  }
+
+  .introDivText {
+    padding: 5px;
+  }
+
+
+
+  .custom_registerBoxOuter {
+    /* padding-top: 20px !important; */
+    padding: 10px !important;
+  }
+
+  .custom_registerBoxInner {
+    /* margin: 0px 40px; */
+    padding: 10px !important;
+  }
+
+
+
+  /* Home Why Section */
+  .why-section {
+    padding-top: 40px !important;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Marquee Section */
+  .marquee-section {
+    padding: 20px;
+  }
+
+  /* courses-section */
+  .courses-section {
+    padding: 20px 10px;
+  }
+
+
+}
+
+@media screen and (max-width: 768px) and (min-width: 425px) {
+
+  /* Home Hero Text */
+  .hero-section {
+    padding-top: 100px !important;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  .custom_registerBoxOuter {
+    padding-top: 20px !important;
+    padding: 10px !important;
+  }
+
+  .custom_registerBoxInner {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    padding: 10px !important;
+  }
+
+
+
+  /* Home Why Section */
+  .why-section {
+    padding-top: 40px !important;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+
+ 
+
 }

@@ -8,9 +8,11 @@ body {
   /* background: linear-gradient(135deg, #6b21a8, #4338ca); */
   background: #ecf0f1 ;
     color: #1b4f72;
+     font-family: "Roboto", sans-serif !important;
 }
 
 /* App.css or index.css */
 html {
   scroll-behavior: smooth;
+  
 }

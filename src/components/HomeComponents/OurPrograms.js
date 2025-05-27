@@ -1,4 +1,4 @@
-// src/components/OurPrograms.js
+
 import React, { useRef } from 'react';
 import courses from '../dataComponents/courseCards';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import '../Home.css'; // ⬅️ Add custom styles here
 import MarqueeCourses from './MarqueeCourses';
 
-const CourseCard = ({ title, image, technologies, onClick }) => (
+const CourseCard = ({ title, image, description, onClick }) => (
   <div
     className="me-3 flex-shrink-0"
     style={{ width: '280px', cursor: 'pointer', height: '100%' }}
@@ -24,13 +24,11 @@ const CourseCard = ({ title, image, technologies, onClick }) => (
         alt={title}
         style={{ height: '160px', objectFit: 'cover' }}
       />
-      <div className="card-body text-center d-flex flex-column justify-content-between">
-        <h5 className="card-title fw-semibold mb-2">{title}</h5>
-        {technologies?.length > 0 && (
-          <p className="card-text text-muted small mb-0">
-            <strong>Technologies:</strong> {technologies.join(', ')}
+      <div className="card-body text-center d-flex flex-column">
+        <h5 className="card-title mb-2">{title}</h5>
+          <p className="card-text mb-0">
+            <strong>Technologies:</strong> {description}
           </p>
-        )}
       </div>
     </div>
   </div>
@@ -47,7 +45,7 @@ function OurPrograms() {
   };
 
   return (
-    <div className="containerCourse py-5">
+    <div className="containerCourse">
       {/* Title */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -122,8 +120,6 @@ function OurPrograms() {
           ))}
         </Swiper>
       </div>
-
-    
 
       {/* Mobile view (stacked cards) */}
       <div className="d-md-none d-flex flex-column align-items-center gap-4 mt-4">

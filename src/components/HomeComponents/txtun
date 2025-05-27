@@ -1,0 +1,765 @@
+// // src/components/OurPrograms.js
+// import React, { useRef } from 'react';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Autoplay } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+// import '../Home.css'; // ⬅️ Add custom styles here
+// import MarqueeCourses from './MarqueeCourses';
+
+// const CourseCard = ({ title, image, technologies, onClick }) => (
+//   <div
+//     className="me-3 flex-shrink-0"
+//     style={{ width: '280px', cursor: 'pointer', height: '100%' }}
+//     onClick={onClick}
+//   >
+//     <div className="card h-100 shadow-sm rounded-4 overflow-hidden program-card">
+//       <img
+//         src={image || 'https://via.placeholder.com/280x160'}
+//         className="card-img-top"
+//         alt={title}
+//         style={{ height: '160px', objectFit: 'cover' }}
+//       />
+//       <div className="card-body text-center d-flex flex-column justify-content-between">
+//         <h5 className="card-title fw-semibold mb-2">{title}</h5>
+//         {technologies?.length > 0 && (
+//           <p className="card-text text-muted small mb-0">
+//             <strong>Technologies:</strong> {technologies.join(', ')}
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   </div>
+// );
+
+// function OurPrograms() {
+//   const prevRef = useRef(null);
+//   const nextRef = useRef(null);
+//   const swiperRef = useRef(null);
+//   const navigate = useNavigate();
+
+//   const handleNavigate = () => {
+//     navigate('/courses');
+//   };
+
+//   return (
+//     <div className="containerCourse">
+//       {/* Title */}
+//       <motion.div
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.7, ease: 'easeOut' }}
+//         className="text-center mb-4"
+//       >
+//         <h2 className="fw-bold mb-5 fs-2">Our Programs</h2>
+//       </motion.div>
+
+
+
+
+
+
+//       {/* Swiper for desktop */}
+//       <div
+//         className="d-none d-md-block position-relative px-5"
+//         onMouseEnter={() => swiperRef.current?.swiper?.autoplay?.stop()}
+//         onMouseLeave={() => swiperRef.current?.swiper?.autoplay?.start()}
+//       >
+//         <motion.button
+//           ref={prevRef}
+//           className="custom-swiper-arrow custom-swiper-arrow-left"
+//           whileHover={{ scale: 1.2 }}
+//         >
+//           <FiChevronLeft size={24} />
+//         </motion.button>
+//         <motion.button
+//           ref={nextRef}
+//           className="custom-swiper-arrow custom-swiper-arrow-right"
+//           whileHover={{ scale: 1.2 }}
+//         >
+//           <FiChevronRight size={24} />
+//         </motion.button>
+//         <Swiper
+//           ref={swiperRef}
+//           modules={[Navigation, Autoplay]}
+//           spaceBetween={20}
+//           loop={true}
+//           autoplay={{ delay: 3000, disableOnInteraction: false }}
+//           navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+//           breakpoints={{
+//             320: { slidesPerView: 1 },
+//             576: { slidesPerView: 2 },
+//             768: { slidesPerView: 2 },
+//             992: { slidesPerView: 3 },
+//             1200: { slidesPerView: 4 },
+//           }}
+//           onInit={(swiper) => {
+//             swiper.params.navigation.prevEl = prevRef.current;
+//             swiper.params.navigation.nextEl = nextRef.current;
+//             swiper.navigation.init();
+//             swiper.navigation.update();
+//           }}
+//         >
+
+
+//           {courses.map((course) => (
+//             <SwiperSlide key={course.id}>
+//               <motion.div
+//                 initial={{ opacity: 0, y: 30 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 viewport={{ once: true }}
+//                 transition={{ duration: 0.5 }}
+//                 style={{ height: '100%' }}
+//               >
+//                 <CourseCard {...course} onClick={handleNavigate} />
+//               </motion.div>
+//             </SwiperSlide>
+//           ))}
+//         </Swiper>
+//       </div>
+
+
+
+//       {/* Mobile view (stacked cards) */}
+//       <div className="d-md-none d-flex flex-column align-items-center gap-4 mt-4">
+//         {courses.slice(0, 7).map((course, idx) => (
+//           <motion.div
+//             key={course.id}
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.5 + idx * 0.1 }}
+//             style={{ width: '90%', maxWidth: '320px' }}
+//           >
+//             <CourseCard {...course} onClick={handleNavigate} />
+//           </motion.div>
+//         ))}
+//       </div>
+//         {/* View All Courses Button */}
+//       <div className="text-center mt-4">
+//         <motion.button
+//           whileHover={{ scale: 1.05 }}
+//           whileTap={{ scale: 0.95 }}
+//           onClick={() => navigate('/courses')}
+//           className="btn View-btn-gradient px-4 py-2 rounded-3 fw-semibold"
+//         >
+//           View All Courses
+//         </motion.button>
+//       </div>
+
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+// src/components/OurPrograms.js
+// import React, { useRef, useEffect, useState } from 'react';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Autoplay } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+// import '../Home.css';
+// import MarqueeCourses from './MarqueeCourses';
+
+// const CourseCard = ({ title, image, technologies, onClick }) => (
+//   <div
+//     className="me-3 flex-shrink-0"
+//     style={{ width: '280px', cursor: 'pointer', height: '100%' }}
+//     onClick={onClick}
+//   >
+//     <div className="card h-100 shadow-sm rounded-4 overflow-hidden program-card">
+//       <img
+//         src={image || 'https://via.placeholder.com/280x160'}
+//         className="card-img-top"
+//         alt={title}
+//         style={{ height: '160px', objectFit: 'cover' }}
+//       />
+//       <div className="card-body text-center d-flex flex-column justify-content-between">
+//         <h5 className="card-title fw-semibold mb-2">{title}</h5>
+//         {technologies?.length > 0 && (
+//           <p className="card-text text-muted small mb-0">
+//             <strong>Technologies:</strong> {technologies.join(', ')}
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   </div>
+// );
+
+// function OurPrograms() {
+//   const prevRef = useRef(null);
+//   const nextRef = useRef(null);
+//   const swiperRef = useRef(null);
+//   const navigate = useNavigate();
+//   const [swiperReady, setSwiperReady] = useState(false);
+
+//   // Wait for refs to be ready before rendering Swiper
+//   useEffect(() => {
+//     if (prevRef.current && nextRef.current) {
+//       setSwiperReady(true);
+//     }
+//   }, []);
+
+//   const handleNavigate = () => {
+//     navigate('/courses');
+//   };
+
+//   return (
+//     <div className="containerCourse">
+//       {/* Title */}
+//       <motion.div
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.7, ease: 'easeOut' }}
+//         className="text-center mb-4"
+//       >
+//         <h2 className="fw-bold mb-5 fs-2">Our Programs</h2>
+//       </motion.div>
+
+//       {/* Swiper for desktop */}
+//       <div
+//         className="d-none d-md-block position-relative px-5"
+//         onMouseEnter={() => swiperRef.current?.swiper?.autoplay?.stop()}
+//         onMouseLeave={() => swiperRef.current?.swiper?.autoplay?.start()}
+//       >
+//         <motion.button
+//           ref={prevRef}
+//           className="custom-swiper-arrow custom-swiper-arrow-left"
+//           whileHover={{ scale: 1.2 }}
+//         >
+//           <FiChevronLeft size={24} />
+//         </motion.button>
+//         <motion.button
+//           ref={nextRef}
+//           className="custom-swiper-arrow custom-swiper-arrow-right"
+//           whileHover={{ scale: 1.2 }}
+//         >
+//           <FiChevronRight size={24} />
+//         </motion.button>
+
+//         {swiperReady && (
+//           <Swiper
+//             ref={swiperRef}
+//             modules={[Navigation, Autoplay]}
+//             spaceBetween={20}
+//             loop={true}
+//             autoplay={{ delay: 3000, disableOnInteraction: false }}
+//             navigation={{
+//               prevEl: prevRef.current,
+//               nextEl: nextRef.current,
+//             }}
+//             breakpoints={{
+//               320: { slidesPerView: 1 },
+//               576: { slidesPerView: 2 },
+//               768: { slidesPerView: 2 },
+//               992: { slidesPerView: 3 },
+//               1200: { slidesPerView: 4 },
+//             }}
+//             onInit={(swiper) => {
+//               swiper.params.navigation.prevEl = prevRef.current;
+//               swiper.params.navigation.nextEl = nextRef.current;
+//               swiper.navigation.init();
+//               swiper.navigation.update();
+//             }}
+//           >
+//             {courses.map((course) => (
+//               <SwiperSlide key={course.id}>
+//                 {/* <motion.div
+//                   initial={{ opacity: 0, y: 30 }}
+//                   whileInView={{ opacity: 1, y: 0 }}
+//                   viewport={{ once: true }}
+//                   transition={{ duration: 0.5 }}
+//                   style={{ height: '100%' }}
+//                 > */}
+//                   <CourseCard {...course} onClick={handleNavigate} />
+//                 {/* </motion.div> */}
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//         )}
+//       </div>
+
+//       {/* Mobile view (stacked cards) */}
+//       <div className="d-md-none d-flex flex-column align-items-center gap-4 mt-4">
+//         {courses.slice(0, 7).map((course, idx) => (
+//           <motion.div
+//             key={course.id}
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.5 + idx * 0.1 }}
+//             style={{ width: '90%', maxWidth: '320px' }}
+//           >
+//             <CourseCard {...course} onClick={handleNavigate} />
+//           </motion.div>
+//         ))}
+//       </div>
+
+//       {/* View All Courses Button */}
+//       <div className="text-center mt-4">
+//         <motion.button
+//           whileHover={{ scale: 1.05 }}
+//           whileTap={{ scale: 0.95 }}
+//           onClick={() => navigate('/courses')}
+//           className="btn View-btn-gradient px-4 py-2 rounded-3 fw-semibold"
+//         >
+//           View All Courses
+//         </motion.button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+// import React, { useRef, useEffect, useState } from 'react';
+// import courses from '../dataComponents/courseCards';
+// import { motion } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Autoplay } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+// import '../Home.css';
+
+// const CourseCard = ({ title, image, technologies, onClick }) => (
+//   <div
+//     className="me-3 flex-shrink-0"
+//     style={{ width: '280px', cursor: 'pointer', height: '100%' }}
+//     onClick={onClick}
+//   >
+//     <div className="card h-100 shadow-sm rounded-4 overflow-hidden program-card">
+//       <img
+//         src={image || 'https://via.placeholder.com/280x160'}
+//         className="card-img-top"
+//         alt={title || 'Course'}
+//         style={{ height: '160px', objectFit: 'cover' }}
+//       />
+//       <div className="card-body text-center d-flex flex-column justify-content-between">
+//         <h5 className="card-title fw-semibold mb-2">{title || 'Untitled'}</h5>
+//         {Array.isArray(technologies) && technologies.length > 0 && (
+//           <p className="card-text text-muted small mb-0">
+//             <strong>Technologies:</strong> {technologies.join(', ')}
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   </div>
+// );
+
+// function OurPrograms() {
+//   const prevRef = useRef(null);
+//   const nextRef = useRef(null);
+//   const swiperRef = useRef(null); // ✅ This fixes the "not defined" error
+//   const [swiperReady, setSwiperReady] = useState(false);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       if (prevRef.current && nextRef.current) {
+//         setSwiperReady(true);
+//       }
+//     }, 0);
+//     return () => clearTimeout(timer);
+//   }, []);
+
+//   const handleNavigate = () => {
+//     navigate('/courses');
+//   };
+
+//   return (
+//     <div className="containerCourse">
+//       <motion.div
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         transition={{ duration: 0.7, ease: 'easeOut' }}
+//         className="text-center mb-4"
+//       >
+//         <h2 className="fw-bold mb-5 fs-2">Our Programs</h2>
+//       </motion.div>
+
+//       {/* Desktop Swiper View */}
+//       <div
+//         className="d-none d-md-block position-relative px-5"
+//         onMouseEnter={() => swiperRef?.current?.swiper?.autoplay?.stop()}
+//         onMouseLeave={() => swiperRef?.current?.swiper?.autoplay?.start()}
+//       >
+//         <motion.button
+//           ref={prevRef}
+//           className="custom-swiper-arrow custom-swiper-arrow-left"
+//           whileHover={{ scale: 1.2 }}
+//         >
+//           <FiChevronLeft size={24} />
+//         </motion.button>
+//         <motion.button
+//           ref={nextRef}
+//           className="custom-swiper-arrow custom-swiper-arrow-right"
+//           whileHover={{ scale: 1.2 }}
+//         >
+//           <FiChevronRight size={24} />
+//         </motion.button>
+
+//         {swiperReady && (
+//           <Swiper
+//             ref={swiperRef} // ✅ Add the ref here
+//             modules={[Navigation, Autoplay]}
+//             spaceBetween={20}
+//             loop={true}
+//             autoplay={{ delay: 3000, disableOnInteraction: false }}
+//             navigation={{
+//               prevEl: prevRef.current,
+//               nextEl: nextRef.current,
+//             }}
+//             breakpoints={{
+//               320: { slidesPerView: 1 },
+//               576: { slidesPerView: 2 },
+//               768: { slidesPerView: 2 },
+//               992: { slidesPerView: 3 },
+//               1200: { slidesPerView: 4 },
+//             }}
+//             onBeforeInit={(swiper) => {
+//               swiper.params.navigation.prevEl = prevRef.current;
+//               swiper.params.navigation.nextEl = nextRef.current;
+//             }}
+//           >
+//             {courses.filter(Boolean).map((course) => (
+//               <SwiperSlide key={course.id || course.title}>
+//                 <CourseCard {...course} onClick={handleNavigate} />
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//         )}
+//       </div>
+
+//       {/* Mobile View */}
+//       <div className="d-md-none d-flex flex-column align-items-center gap-4 mt-4">
+//         {courses.slice(0, 7).filter(Boolean).map((course, idx) => (
+//           <motion.div
+//             key={course.id || course.title}
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.5 + idx * 0.1 }}
+//             style={{ width: '90%', maxWidth: '320px' }}
+//           >
+//             <CourseCard {...course} onClick={handleNavigate} />
+//           </motion.div>
+//         ))}
+//       </div>
+
+//       {/* View All Courses Button */}
+//       <div className="text-center mt-4">
+//         <motion.button
+//           whileHover={{ scale: 1.05 }}
+//           whileTap={{ scale: 0.95 }}
+//           onClick={handleNavigate}
+//           className="btn View-btn-gradient px-4 py-2 rounded-3 fw-semibold"
+//         >
+//           View All Courses
+//         </motion.button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+// import React, { useRef, useEffect, useState } from 'react';
+// import courses from '../dataComponents/courseCards';
+// import { useNavigate } from 'react-router-dom';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Autoplay } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+// import './OurPrograms.css';
+// // import '../Home.css';
+// import { motion } from 'framer-motion';
+
+// const fadeInUp = {
+//   hidden: { opacity: 0, y: 50 },
+//   visible: (i) => ({
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       delay: i * 0.15,
+//       duration: 0.6,
+//       ease: 'easeOut'
+//     },
+//   }),
+// };
+
+// const CourseCard = ({ title, image, technologies, onClick, index }) => (
+//   <motion.div
+//     custom={index}
+//     variants={fadeInUp}
+//     initial="hidden"
+//     animate="visible"
+//     className="course-card"
+//     onClick={onClick}
+//   >
+//     <div className="card-container">
+//       <img
+//         src={image || 'https://via.placeholder.com/300x180'}
+//         alt={title}
+//         className="card-image"
+//       />
+//       <div className="card-content">
+//         <h5 className="card-title">{title}</h5>
+//         {Array.isArray(technologies) && technologies.length > 0 && (
+//           <p className="card-tech">
+//             <strong>Tech:</strong> {technologies.join(', ')}
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   </motion.div>
+// );
+
+// function OurPrograms() {
+//   const prevRef = useRef(null);
+//   const nextRef = useRef(null);
+//   const swiperRef = useRef(null);
+//   const [swiperReady, setSwiperReady] = useState(false);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       if (prevRef.current && nextRef.current) {
+//         setSwiperReady(true);
+//       }
+//     }, 0);
+//     return () => clearTimeout(timer);
+//   }, []);
+
+//   const handleNavigate = () => navigate('/courses');
+
+//   return (
+//     <div className="programs-container">
+//       <motion.h2
+//         initial={{ opacity: 0, scale: 0.95 }}
+//         animate={{ opacity: 1, scale: 1 }}
+//         transition={{ duration: 0.6, ease: 'easeOut' }}
+//         className="programs-title"
+//       >
+//         Explore Our Programs
+//       </motion.h2>
+
+//       {/* Swiper for Desktop */}
+//       <div
+//         className="programs-swiper d-none d-md-block"
+//         onMouseEnter={() => swiperRef?.current?.swiper?.autoplay?.stop()}
+//         onMouseLeave={() => swiperRef?.current?.swiper?.autoplay?.start()}
+//       >
+//         <button ref={prevRef} className="swiper-arrow left"><FiChevronLeft /></button>
+//         <button ref={nextRef} className="swiper-arrow right"><FiChevronRight /></button>
+
+//         {swiperReady && (
+//           <Swiper
+//             ref={swiperRef}
+//             modules={[Navigation, Autoplay]}
+//             spaceBetween={24}
+//             loop={true}
+//             autoplay={{ delay: 3500, disableOnInteraction: false }}
+//             navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+//             breakpoints={{
+//               320: { slidesPerView: 1 },
+//               576: { slidesPerView: 2 },
+//               768: { slidesPerView: 3 },
+//               1200: { slidesPerView: 4 },
+//             }}
+//             onBeforeInit={(swiper) => {
+//               swiper.params.navigation.prevEl = prevRef.current;
+//               swiper.params.navigation.nextEl = nextRef.current;
+//             }}
+//           >
+//             {courses.map((course, i) => (
+//               <SwiperSlide key={course.id || i}>
+//                 <CourseCard {...course} onClick={handleNavigate} index={i} />
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//         )}
+//       </div>
+
+//       {/* Mobile View */}
+//       <div className="programs-mobile d-md-none">
+//         {courses.slice(0, 6).map((course, i) => (
+//           <CourseCard key={course.id || i} {...course} onClick={handleNavigate} index={i} />
+//         ))}
+//       </div>
+
+//       <motion.button
+//         whileHover={{ scale: 1.05 }}
+//         whileTap={{ scale: 0.95 }}
+//         onClick={handleNavigate}
+//         className="view-all-btn"
+//       >
+//         View All Courses
+//       </motion.button>
+//     </div>
+//   );
+// }
+
+// export default OurPrograms;
+
+
+
+
+.programs-container {
+  padding: 3rem 1rem;
+  background-color: #f9f9fc;
+  text-align: center;
+}
+
+.programs-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2.5rem;
+}
+
+/* Swiper arrows */
+.swiper-arrow {
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.swiper-arrow.left {
+  left: 10px;
+}
+.swiper-arrow.right {
+  right: 10px;
+}
+
+.swiper-arrow:hover {
+  background-color: #eee;
+}
+
+.programs-swiper {
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+.course-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+  text-align: left;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.card-tech {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.view-all-btn {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.view-all-btn:hover {
+  background: linear-gradient(45deg, #5563c1, #1c2e55);
+  transform: scale(1.05);
+}
+
+/* Mobile grid styles */
+.programs-mobile .mobile-course-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  padding: 0 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .programs-title {
+    font-size: 2rem;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+
+  .view-all-btn {
+    width: 90%;
+  }
+
+  .swiper-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .programs-mobile .mobile-course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-image {
+    height: 140px;
+  }
+}
