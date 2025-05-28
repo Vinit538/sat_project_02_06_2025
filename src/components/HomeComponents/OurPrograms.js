@@ -26,9 +26,9 @@ const CourseCard = ({ title, image, description, onClick }) => (
       />
       <div className="card-body text-center d-flex flex-column">
         <h5 className="card-title mb-2">{title}</h5>
-          <p className="card-text mb-0">
-            <strong>Technologies:</strong> {description}
-          </p>
+        <p className="card-text mb-0">
+          <strong>Technologies:</strong> {description}
+        </p>
       </div>
     </div>
   </div>
@@ -121,8 +121,8 @@ function OurPrograms() {
         </Swiper>
       </div>
 
-      {/* Mobile view (stacked cards) */}
-      <div className="d-md-none d-flex flex-column align-items-center gap-4 mt-4">
+      {/* Mobile view (stacked cards)
+      <div className="d-md-none d-flex flex-column align-items-center gap-4 mobileView-ourProgr">
         {courses.slice(0, 7).map((course, idx) => (
           <motion.div
             key={course.id}
@@ -135,8 +135,46 @@ function OurPrograms() {
             <CourseCard {...course} onClick={handleNavigate} />
           </motion.div>
         ))}
+      </div> */}
+      {/* Mobile view (stacked cards) */}
+      <div
+        className="d-md-none d-flex flex-column justify-content-center align-items-center gap-4 mobileView-ourProgr"
+        style={{ width: "100%", padding: "1rem 0" }}
+      >
+        {courses.slice(0, 7).map((course, idx) => (
+          <motion.div
+          className='mobileviewCard'
+            key={course.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 + idx * 0.1 }}
+           
+          >
+            <CourseCard {...course} onClick={handleNavigate} />
+          </motion.div>
+        ))}
       </div>
-        {/* View All Courses Button */}
+      {/* Mobile view (stacked cards) */}
+      {/* <div
+        className="mobileView-ourProgr"
+      >
+        {courses.slice(0, 7).map((course, idx) => (
+          <motion.div
+            className="mobileviewCard"
+            key={course.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 + idx * 0.1 }}
+          >
+            <CourseCard {...course} onClick={handleNavigate} />
+          </motion.div>
+        ))}
+      </div> */}
+
+
+      {/* View All Courses Button */}
       <div className="text-center mt-4">
         <motion.button
           whileHover={{ scale: 1.05 }}

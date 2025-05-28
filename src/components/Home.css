@@ -419,6 +419,7 @@ section {
   color: #003153 !important;
   transition: transform 0.3s !important;
 }
+
 .metric-card:hover * {
   color: #003153 !important;
 }
@@ -487,7 +488,7 @@ section {
   }
 
 
- 
+
 
   .custom_registerBoxInner {
     margin-left: 10px !important;
@@ -519,15 +520,37 @@ section {
 
   /* courses-section */
   .courses-section {
-    padding: 20px 10px;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
   }
+
+  .mobileView-ourProgrms {
+    justify-content: center !important;
+  }
+
+  .mobileView-ourProgr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px !important;
+    gap: 1.5rem;
+
+  }
+
+  .mobileviewCard {
+    width: 300px !important;
+    padding: 10px !important;
+    background-color: #007cf0;
+  }
+
+
 
 }
 
 @media screen and (max-width: 425px) and (min-width: 321px) {
 
   /* Home Hero Text */
-
 
   .hero-section {
     padding-top: 80px !important;
@@ -573,8 +596,34 @@ section {
 
   /* courses-section */
   .courses-section {
-    padding: 20px 10px;
+    /* padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 20px !important; */
+    padding: 20px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
+
+  .mobileView-ourProgr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* center child cards */
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1.5rem;
+  }
+
+  .mobileviewCard {
+    width: 300px;
+    /* max-width: 320px; */
+    margin: 0;
+    /* Ensures it stays centered */
+    padding: 10px;
+  }
+
+
 
 
 }
@@ -610,9 +659,4 @@ section {
     padding-left: 15px;
     padding-right: 15px;
   }
-
-
-
- 
-
 }

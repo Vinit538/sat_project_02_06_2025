@@ -1,5 +1,5 @@
 /* Base Styles */
-.javaFullStackPage {
+.satCoursePage {
   font-family: "Segoe UI", sans-serif;
   background: #f9f9fb;
   color: #222;
@@ -7,14 +7,14 @@
   padding-bottom: 4rem;
 }
 
-.fullstack-wrapper {
+.satCoursePage-wrapper {
   max-width: 1200px;
   margin: auto;
   padding: 2rem 1rem;
 }
 
 /* Hero Section */
-.java_hero-section {
+.satCoursePage-hero-section {
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
   color: #fff;
   padding: 4rem 2rem;
@@ -23,24 +23,24 @@
   margin-bottom: 2rem;
 }
 
-.java_hero-section h1 {
+.satCoursePage-hero-section h1 {
   font-size: 2.8rem;
   margin-bottom: 1rem;
 }
 
-.java_hero-section p {
+.satCoursePage-hero-section p {
   font-size: 1.2rem;
   max-width: 700px;
   margin: auto;
 }
 
 /* Section Styling */
-.java_container {
+.satCoursePage-container {
   padding: 0 1rem;
 }
 
 .section,
-.java_section {
+.satCoursePage-section {
   background: #fff;
   border-radius: 1rem;
   padding: 2rem;
@@ -49,7 +49,7 @@
 }
 
 .section h2,
-.java_section h2 {
+.satCoursePage-section h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -58,26 +58,26 @@
   color: #1e3a8a;
 }
 
-.java_icon {
+.satCoursePage-icon {
   color: #2563eb;
 }
 
 /* Lists */
-.java-highlight-list,
-.java-tech-list {
+.satCoursePage-highlight-list,
+.satCoursePage-tech-list {
   list-style: none;
   padding-left: 0;
 }
 
-.java-highlight-list li,
-.java-tech-list li {
+.satCoursePage-highlight-list li,
+.satCoursePage-tech-list li {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
-.java-highlight-list li::before,
-.java-tech-list li::before {
+.satCoursePage-highlight-list li::before,
+.satCoursePage-tech-list li::before {
   content: "✔";
   position: absolute;
   left: 0;
@@ -93,7 +93,7 @@
   overflow: hidden;
 }
 
-.accordion-btn {
+/* .accordion-btn {
   background: #f3f4f6;
   border: none;
   width: 100%;
@@ -117,7 +117,75 @@
   padding: 1rem;
   border-top: 1px solid #e5e7eb;
   color: #374151;
+} */
+
+.colored-theme {
+    background: linear-gradient(135deg, #f0f4ff, #e3f2fd);
+    color: #1a237e;
 }
+
+.accordion-item {
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    border: 1px solid #d1d1ff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.accordion-btn {
+    background-color: #e8eaf6;
+    color: #1a237e;
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1.2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.accordion-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #3f51b5;
+}
+
+.accordion-content {
+    padding: 1rem 1.5rem;
+    background-color: #fefefe;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.accordion-toggle {
+    font-size: 1.5rem;
+    color: #303f9f;
+}
+
+.accordion-item.active .accordion-btn {
+    background-color: #c5cae9;
+    color: #0d47a1;
+    font-weight: bold;
+}
+
+
+
+.module-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.accordion-icon {
+  color: #007bff; /* Adjust as needed */
+  font-size: 1.2rem;
+}
+
+
 
 /* Testimonials */
 .testimonials {
@@ -133,7 +201,7 @@
 }
 
 /* Buttons */
-.java-cta-buttons {
+.satCoursePage-cta-buttons {
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -141,7 +209,7 @@
   flex-wrap: wrap;
 }
 
-.java_btn {
+.satCoursePage-btn {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 999px;
@@ -156,33 +224,114 @@
   color: #fff;
 }
 
-.java-download-btn {
+.satCoursePage-download-btn {
   background: #2563eb;
 }
 
-.java-download-btn:hover {
+.satCoursePage-download-btn:hover {
   background: #1e40af;
 }
 
-.java-register-btn {
+.satCoursePage-register-btn {
   background: #10b981;
 }
 
-.java-register-btn:hover {
+.satCoursePage-register-btn:hover {
   background: #047857;
 }
+.brochure-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.floating-back-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* or left: 20px */
+  background-color: #007bff; /* your preferred color */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.floating-back-button:hover {
+  background-color: #0056b3;
+}
+
+
+.brochure-download {
+    display: flex;
+    flex-direction: column; /* Or 'row' if you want them side-by-side */
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.download-btn,
+.satCoursePage-register-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #004aad; /* Primary blue */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover,
+.satCoursePage-register-btn:hover {
+    background-color: #00318c; /* Darker blue on hover */
+}
+
+
+
+/* .brochure-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.download-btn, .back-link {
+    background: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover, .back-link:hover {
+    background: #0056b3;
+} */
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .java_hero-section h1 {
+  .satCoursePage-hero-section h1 {
     font-size: 2rem;
   }
 
-  .java_section h2 {
+  .satCoursePage-section h2 {
     font-size: 1.3rem;
   }
 
-  .java_btn {
+  .satCoursePage-btn {
     width: 100%;
     justify-content: center;
   }
