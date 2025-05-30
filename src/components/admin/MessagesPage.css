@@ -1,0 +1,89 @@
+.messages-container {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.messages-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.custom-table thead th {
+  background-color: #343a40;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem;
+}
+
+.custom-table tbody td {
+  background-color: #fff;
+  padding: 0.75rem;
+}
+
+.custom-table tbody tr:nth-child(even) td {
+  background-color: #f1f3f5;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* Search + Export layout */
+.messages-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+/* Table styling */
+/* .custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table thead th {
+  background-color: #343a40;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.custom-table tbody td {
+  background-color: #fff;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  vertical-align: top;
+  border-color: #dee2e6;
+}
+
+.custom-table tbody tr:nth-child(even) td {
+  background-color: #f1f3f5;
+}
+
+.custom-table tbody tr:hover td {
+  background-color: #e2f0ff;
+} */
+
+/* Export button */
+.btn-success {
+  background-color: #27ae60;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.btn-success:hover {
+  background-color: #219150;
+}

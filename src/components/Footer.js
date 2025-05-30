@@ -19,7 +19,7 @@ const Footer = () => {
                         <span> Email - satacademy@gmail.com</span>
                     </Link>
                     <button className="btn footerbtn">
-                        Register
+                        <Link to="/admin" target="_blank"><span>Register</span></Link>
                     </button>
                 </div>
                 <hr className="bg-light" />

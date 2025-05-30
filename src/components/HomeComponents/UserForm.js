@@ -11,9 +11,9 @@ function UserForm() {
         userName: '',
         userEmail: '',
         userPhoneNo: '',
+        userCity: '',
         userQualification: '',
         userLanguage: '',
-        userCity: '',
         userSelectedTech: '',
         userReferralId: ''
     });
@@ -72,9 +72,9 @@ function UserForm() {
             userName: '',
             userEmail: '',
             userPhoneNo: '',
+            userCity: '',
             userQualification: '',
             userLanguage: '',
-            userCity: '',
             userSelectedTech: '',
             userReferralId: ''
         });
@@ -119,18 +119,17 @@ function UserForm() {
             >
                 {/* Input Fields */}
                 {[{ label: 'Name', name: 'userName', type: 'text' },
-                  { label: 'Email', name: 'userEmail', type: 'email' },
-                  { label: 'Phone No', name: 'userPhoneNo', type: 'tel' },
-                  { label: 'City', name: 'userCity', type: 'text' }].map(({ label, name, type }) => (
+                { label: 'Email', name: 'userEmail', type: 'email' },
+                { label: 'Phone No', name: 'userPhoneNo', type: 'tel' },
+                { label: 'City', name: 'userCity', type: 'text' }].map(({ label, name, type }) => (
                     <motion.div className="mb-3 position-relative" key={name} {...motionInputProps}>
                         <input
-                            className={`form-control input-colored ${
-                                validationStatus[name] === null
-                                    ? ''
-                                    : validationStatus[name]
+                            className={`form-control input-colored ${validationStatus[name] === null
+                                ? ''
+                                : validationStatus[name]
                                     ? 'is-valid'
                                     : 'is-invalid'
-                            }`}
+                                }`}
                             type={type}
                             name={name}
                             placeholder={label}
@@ -183,13 +182,12 @@ function UserForm() {
                 <motion.div className="mb-3" {...motionInputProps}>
                     <label className="text-muted h6">Which Technology Path Will You Choose to Launch Your Career?</label>
                     <select
-                        className={`form-select input-colored ${
-                            validationStatus.userSelectedTech === null
-                                ? ''
-                                : validationStatus.userSelectedTech
+                        className={`form-select input-colored ${validationStatus.userSelectedTech === null
+                            ? ''
+                            : validationStatus.userSelectedTech
                                 ? 'is-valid'
                                 : 'is-invalid'
-                        }`}
+                            }`}
                         name="userSelectedTech"
                         value={newUserData.userSelectedTech}
                         onChange={(e) => {
@@ -199,7 +197,7 @@ function UserForm() {
                         required
                     >
                         <option value="">Select Technology Path</option>
-                        <option value="Data Engneering">Data Engineering</option>
+                        <option value="Data Engineering">Data Engineering</option>
                         <option value="Data Analyst">Data Analyst</option>
                         <option value="Data Administration">Data Administration</option>
                         <option value="Artificial Intelligence">Artificial Intelligence</option>

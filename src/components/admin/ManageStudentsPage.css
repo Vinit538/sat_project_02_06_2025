@@ -1,0 +1,74 @@
+/* Table container */
+.manage-students-container {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Table header */
+.custom-table thead th {
+  background-color: #2c3e50;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* Table rows */
+.custom-table tbody td {
+  background-color: #fff;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  vertical-align: middle;
+  border-color: #dee2e6;
+}
+
+/* Zebra striping */
+.custom-table tbody tr:nth-child(even) td {
+  background-color: #f1f3f5;
+}
+
+/* Hover effect */
+.custom-table tbody tr:hover td {
+  background-color: #e2f0ff;
+}
+
+/* Sort arrows */
+.custom-table thead th span {
+  margin-left: 8px;
+  font-size: 0.9rem;
+  color: #ffd700;
+}
+
+/* Search input + button row */
+.manage-students-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Search input */
+.manage-students-actions input {
+  max-width: 400px;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+}
+
+/* CSV button */
+.manage-students-actions .btn-success {
+  background-color: #27ae60;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.manage-students-actions .btn-success:hover {
+  background-color: #219150;
+}

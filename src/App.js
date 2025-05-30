@@ -31,7 +31,12 @@ import DigitalMarketing from './components/courseComponents/DigitalMarketing';
 import MainframeTechnologies from './components/courseComponents/MainframeTechnologies';
 
 
-
+//admin pages
+import AdminDashboard from './components/admin/AdminDashboard';
+import ManageStudentPage from './components/admin/ManageStudentsPage';
+import MessagesPage from './components/admin/MessagesPage';
+import ApplicationsPage from './components/admin/ApplicationsPage';
+import HiringRequestsPage from './components/admin/HiringRequestsPage';
 
 // import Courses from './components/PagesComponents/Courses';
 // ✅ Lazy load Courses page
@@ -77,6 +82,12 @@ const AppContent = () => {
                 <Route path='/courses/digital-marketing' element={<DigitalMarketing />} />
                 <Route path='/courses/mainframe-technologies' element={<MainframeTechnologies />} />
                 <Route path="/teamPage" element={<TeamPage />} />
+
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path='/admin/MessagesPage' element={<MessagesPage/>}  />
+                <Route path='/admin/ManageStudentPage' element={<ManageStudentPage/>}  />
+                <Route path='/admin/ApplicationsPage' element={<ApplicationsPage/>}  />
+                <Route path='/admin/HiringRequestsPage' element={<HiringRequestsPage/>}  />
               </Routes>
             </Suspense>
           </AnimatePresence>

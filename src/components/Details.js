@@ -82,9 +82,4 @@ const Details = () => {
 
 export default Details;
 
-{/* <div className="details-section">
-  <h4><FaLaptopCode className="details-icon" /> Explore</h4>
-  <Link to="/courses"><span>Courses</span></Link>
-  <Link to="/internships"><span>Internships</span></Link>
-  <Link to="/projects"><span>Projects</span></Link>
-</div> */}
+

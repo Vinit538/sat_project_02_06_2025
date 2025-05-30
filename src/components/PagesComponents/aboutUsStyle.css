@@ -1,0 +1,109 @@
+.about-us-container {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px 20px;
+  background: #f7f9fb;
+}
+
+/* Hero */
+.gradient-bg {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.about_hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-text {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-top: 10px;
+}
+
+/* Cards */
+.card-section {
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.section-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 900px;
+}
+
+ul.list {
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+/* Colored Icons */
+.icon {
+  font-size: 2rem;
+}
+
+.colored-icon.blue { color: #1e3c72; }
+.colored-icon.purple { color: #6a1b9a; }
+.colored-icon.green { color: #2e7d32; }
+.colored-icon.orange { color: #ef6c00; }
+.colored-icon.pink { color: #c2185b; }
+.colored-icon.yellow { color: #f9a825; }
+.colored-icon.teal { color: #00897b; }
+.colored-icon.sky { color: #039be5; }
+.colored-icon.lime { color: #afb42b; }
+.colored-icon.red { color: #d32f2f; }
+.colored-icon.navy { color: #283593; }
+.colored-icon.deep { color: #512da8; }
+
+/* Buttons */
+.main-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2a5298;
+  color: #fff;
+  padding: 10px 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.main-btn:hover {
+  background: #1e3c72;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+}

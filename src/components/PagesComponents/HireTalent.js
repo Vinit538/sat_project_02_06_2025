@@ -634,7 +634,7 @@ function HireTalent() {
     }
 
     try {
-      // await axios.post(`${base_url}/hire-inquiry`, hireTalentFormData);
+      await axios.post(`${base_url}/hire-talent/submit`, hireTalentFormData);
       console.log(hireTalentFormData);
       toast.success("Inquiry submitted successfully!");
       setHireTalentFormData({

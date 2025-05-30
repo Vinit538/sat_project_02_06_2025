@@ -415,7 +415,7 @@ section {
 
 .metric-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 0px 20px aqua !important;
+  box-shadow: 0px 0px 40px aqua !important;
   color: #003153 !important;
   transition: transform 0.3s !important;
 }
@@ -456,7 +456,8 @@ section {
 
 /* CTA Hover */
 .glow-on-hover:hover {
-  box-shadow: 0 0 10px #007bff, 0 0 20px #007bff;
+  /* box-shadow: 0 0 10px #007bff, 0 0 20px #007bff; */
+ box-shadow: 0 0 40px blue !important;
   transform: translateY(-2px);
 }
 

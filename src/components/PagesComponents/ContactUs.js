@@ -54,7 +54,7 @@ function ContactUs() {
     }
 
     try {
-      // await axios.post(`${base_url}/contact`, contactForm);
+      await axios.post(`${base_url}/api/messages`, contactForm);
       console.log(contactForm);
       toast.success("Message sent successfully!");
       setContactForm({

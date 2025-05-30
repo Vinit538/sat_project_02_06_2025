@@ -155,26 +155,7 @@ function OurPrograms() {
           </motion.div>
         ))}
       </div>
-      {/* Mobile view (stacked cards) */}
-      {/* <div
-        className="mobileView-ourProgr"
-      >
-        {courses.slice(0, 7).map((course, idx) => (
-          <motion.div
-            className="mobileviewCard"
-            key={course.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 + idx * 0.1 }}
-          >
-            <CourseCard {...course} onClick={handleNavigate} />
-          </motion.div>
-        ))}
-      </div> */}
-
-
-      {/* View All Courses Button */}
+           {/* View All Courses Button */}
       <div className="text-center mt-4">
         <motion.button
           whileHover={{ scale: 1.05 }}
