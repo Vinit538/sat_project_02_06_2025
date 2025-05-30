@@ -13,7 +13,7 @@ export default function HiringRequestsPage() {
   const [globalFilter, setGlobalFilter] = useState("");
 
   useEffect(() => {
-    axios.get(`${base_url}/hiring-talent`)
+    axios.get(`${base_url}/hire-talent`)
       .then(res => setRequests(res.data))
       .catch(err => console.error(err));
   }, []);

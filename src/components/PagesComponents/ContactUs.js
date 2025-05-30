@@ -9,22 +9,22 @@ import "./pagesStyle.css";
 
 function ContactUs() {
   const [contactForm, setContactForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+    userName: "",
+    userEmail: "",
+    userPhoneNo: "",
+    userMessage: "",
   });
 
   const [validation, setValidation] = useState({
-    email: null,
-    phone: null,
+    userEmail: null,
+    userPhoneNo: null,
   });
 
   const validateField = (name, value) => {
     let isValid = false;
-    if (name === "email") {
+    if (name === "userEmail") {
       isValid = /^[A-Za-z0-9._%+-]+@[A-Za-z.-]+\.[A-Za-z]{2,}$/i.test(value);
-    } else if (name === "phone") {
+    } else if (name === "userPhoneNo") {
       isValid = /^[0-9]{10}$/.test(value);
     }
     setValidation((prev) => ({ ...prev, [name]: isValid }));
@@ -33,7 +33,7 @@ function ContactUs() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setContactForm({ ...contactForm, [name]: value });
-    if (name === "email" || name === "phone") {
+    if (name === "userEmail" || name === "userPhoneNo") {
       validateField(name, value);
     }
   };
@@ -41,29 +41,29 @@ function ContactUs() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, phone, message } = contactForm;
+    const { userName, userEmail, userPhoneNo, userMessage } = contactForm;
 
-    if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+    if (!userName.trim() || !userEmail.trim() || !userPhoneNo.trim() || !userMessage.trim()) {
       toast.error("Please fill all the fields before submitting.");
       return;
     }
 
-    if (!validation.email || !validation.phone) {
+    if (!validation.userEmail || !validation.userPhoneNo) {
       toast.error("Please correct the errors in email and phone fields.");
       return;
     }
 
     try {
-      await axios.post(`${base_url}/api/messages`, contactForm);
+      // await axios.post(`${base_url}/api/messages`, contactForm);
       console.log(contactForm);
       toast.success("Message sent successfully!");
       setContactForm({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
+        userName: "",
+        userEmail: "",
+        userPhoneNo: "",
+        userMessage: "",
       });
-      setValidation({ email: null, phone: null });
+      setValidation({ userEmail: null, userPhoneNo: null });
     } catch (error) {
       toast.error("Something went wrong. Please try again later.");
     }
@@ -121,44 +121,44 @@ function ContactUs() {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            name="name"
+            name="userName"
             placeholder="Your Name"
-            value={contactForm.name}
+            value={contactForm.userName}
             onChange={handleInputChange}
             required
           />
 
           <input
             type="email"
-            name="email"
+            name="userEmail"
             placeholder="Your Email"
-            value={contactForm.email}
+            value={contactForm.userEmail}
             onChange={handleInputChange}
-            className={validation.email === false ? "is-invalid" : ""}
+            className={validation.userEmail === false ? "is-invalid" : ""}
             required
           />
-          {validation.email === false && (
+          {validation.userEmail === false && (
             <small className="text-danger">Invalid email format</small>
           )}
 
           <input
             type="tel"
-            name="phone"
+            name="userPhoneNo"
             placeholder="Your Phone Number"
-            value={contactForm.phone}
+            value={contactForm.userPhoneNo}
             onChange={handleInputChange}
-            className={validation.phone === false ? "is-invalid" : ""}
+            className={validation.userPhoneNo === false ? "is-invalid" : ""}
             required
           />
-          {validation.phone === false && (
+          {validation.userPhoneNo === false && (
             <small className="text-danger">Enter 10-digit phone number</small>
           )}
 
           <textarea
-            name="message"
+            name="userMessage"
             placeholder="Your Message"
             rows="4"
-            value={contactForm.message}
+            value={contactForm.userMessage}
             onChange={handleInputChange}
             required
           ></textarea>
