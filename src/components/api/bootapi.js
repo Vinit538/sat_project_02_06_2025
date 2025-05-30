@@ -1,4 +1,4 @@
-const base_url="http://localhost:8080";
+const base_url="https://localhost:8080";
 export default base_url;
 
 // const base_url = "http://192.168.29.232:8080";
