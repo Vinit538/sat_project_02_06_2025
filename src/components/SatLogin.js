@@ -14,7 +14,7 @@ const SatLogin = () => {
 
         try {
             console.log(email, password);
-            const res = await axios.post("/api/login", { email, password });
+            const res = await axios.post("/admin/login", { email, password });
             localStorage.setItem("authToken", res.data.token);
             localStorage.setItem("userRole", res.data.role); // make sure backend sends the role
             navigate("/admin");
