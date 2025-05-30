@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './SatLogin.css';
+import base_url from './api/bootapi';
 
 const SatLogin = () => {
     const [email, setEmail] = useState("");
@@ -14,7 +15,8 @@ const SatLogin = () => {
 
         try {
             console.log(email, password);
-            const res = await axios.post("/admin/login", { email, password });
+            const res = await axios.post(`${base_url}/admin/login`, { email, password });
+            // const res = await axios.post("http://localhost:8080/admin/login", { email, password });
             localStorage.setItem("authToken", res.data.token);
             localStorage.setItem("userRole", res.data.role); // make sure backend sends the role
             navigate("/admin");
