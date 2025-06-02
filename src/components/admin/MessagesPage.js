@@ -9,20 +9,29 @@ import {
 import { CSVLink } from "react-csv";
 import dayjs from "dayjs";
 import "./MessagesPage.css";
-import base_url from '../api/bootapi';
-
+import axiosInstance from '../api/axiosConfig';
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState([]);
   const [techFilter, setTechFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`${base_url}/api/messages`)
+  //     .then((res) => setMessages(res.data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get(`${base_url}/api/messages`)
-      .then((res) => setMessages(res.data))
-      .catch((err) => console.error(err));
-  }, []);
+  axiosInstance
+    .get('/api/messages') // baseURL is already configured
+    .then((res) => setMessages(res.data))
+    .catch((err) => {
+      console.error("Error fetching students:", err);
+      alert("You are not authorized to view this data. Please login.");
+    });
+}, []);
 
   // Filter messages by technology and user name
   const filteredMessages = useMemo(() => {

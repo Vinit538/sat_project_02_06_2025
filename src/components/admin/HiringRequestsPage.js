@@ -6,18 +6,26 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { useReactToPrint } from "react-to-print";
 import "./HiringRequestsPage.css";
-import base_url from "../api/bootapi";
+import axiosInstance from '../api/axiosConfig';
 
 export default function HiringRequestsPage() {
   const [requests, setRequests] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
-  useEffect(() => {
-    axios.get(`${base_url}/hire-talent`)
-      .then(res => setRequests(res.data))
-      .catch(err => console.error(err));
-  }, []);
-
+  // useEffect(() => {
+  //   axios.get(`${base_url}/hire-talent`)
+  //     .then(res => setRequests(res.data))
+  //     .catch(err => console.error(err));
+  // }, []);
+useEffect(() => {
+  axiosInstance
+    .get('/hire-talent') // baseURL is already configured
+    .then((res) => setRequests(res.data))
+    .catch((err) => {
+      console.error("Error fetching students:", err);
+      alert("You are not authorized to view this data. Please login.");
+    });
+}, []);
   const columns = useMemo(() => [
     { Header: "Name", accessor: "name" },
     { Header: "Email", accessor: "email" },

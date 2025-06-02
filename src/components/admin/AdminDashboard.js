@@ -2,6 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import './adminDashboard.css';
+import { useNavigate } from 'react-router-dom'; 
+import { useAuth } from '../../auth/AuthContext'; 
+import axiosInstance from '../api/axiosConfig'; 
+
 const adminCards = [
   {
     title: "Manage Students",
@@ -30,6 +34,30 @@ const adminCards = [
 ];
 
 export default function AdminDashboard() {
+
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+  try {
+    await axiosInstance.post('/admin/logout',{},{ withCredentials: true }); 
+    logout();                           
+    navigate('/satLogin');             
+  } catch (err) {
+    console.error("Logout failed:", err);
+  }
+};
+  // const handleLogout = () => {
+  //   logout();
+  //   navigate('/satLogin');
+  // };
+//   const handleLogout = async () => {
+//   await axios.post('http://localhost:8080/admin/logout', {}, { withCredentials: true });
+//   logout(); // Clear role from context
+//   navigate('/satLogin');
+// };
+
+
   return (
    <div className="admin_page">
      <motion.div
@@ -61,6 +89,10 @@ export default function AdminDashboard() {
         ))}
       </div>
     </motion.div>
+    <div>
+      <h2>Admin Dashboard</h2>
+      <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+    </div>
    </div>
   );
 }

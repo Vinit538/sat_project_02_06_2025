@@ -32,14 +32,14 @@ import MainframeTechnologies from './components/courseComponents/MainframeTechno
 
 
 //admin pages
-import ProtectedRoute from './ProtectedRoute'; // make sure path is correct
+import ProtectedRoute from './auth/ProtectedRoute';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageStudentPage from './components/admin/ManageStudentsPage';
 import MessagesPage from './components/admin/MessagesPage';
 import ApplicationsPage from './components/admin/ApplicationsPage';
 import HiringRequestsPage from './components/admin/HiringRequestsPage';
 
-
+import TestCorsComponent from './TestCorsComponent';
 
 
 
@@ -90,10 +90,10 @@ import Courses from './components/PagesComponents/Courses';
 //                 <Route path="/teamPage" element={<TeamPage />} />
 
 //                 <Route path="/admin" element={<AdminDashboard />} />
-//                 <Route path='/admin/MessagesPage' element={<MessagesPage/>}  />
-//                 <Route path='/admin/ManageStudentPage' element={<ManageStudentPage/>}  />
-//                 <Route path='/admin/ApplicationsPage' element={<ApplicationsPage/>}  />
-//                 <Route path='/admin/HiringRequestsPage' element={<HiringRequestsPage/>}  />
+//                 <Route path='/admin/MessagesPage' element={<MessagesPage />} />
+//                 <Route path='/admin/ManageStudentPage' element={<ManageStudentPage />} />
+//                 <Route path='/admin/ApplicationsPage' element={<ApplicationsPage />} />
+//                 <Route path='/admin/HiringRequestsPage' element={<HiringRequestsPage />} />
 //               </Routes>
 //             </Suspense>
 //           </AnimatePresence>
@@ -103,21 +103,6 @@ import Courses from './components/PagesComponents/Courses';
 //     </>
 //   );
 // };
-
-// function App() {
-//   return (
-//     <Router>
-//       <AppContent />
-//       {/* <PageLoader /> */}
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-
-
-
 
 
 
@@ -218,20 +203,6 @@ const AppContent = () => {
   );
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function App() {
   return (
     <Router>
@@ -239,4 +210,12 @@ function App() {
     </Router>
   );
 }
+
 export default App;
+
+
+
+
+
+
+

@@ -8,18 +8,28 @@ import {
 } from "react-table";
 import { CSVLink } from "react-csv";
 import "./ApplicationsPage.css";
-import base_url from "../api/bootapi";
+import axiosInstance from '../api/axiosConfig';
 
 export default function ApplicationsPage() {
   const [applications, setApplications] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`${base_url}/career`)
+  //     .then((res) => setApplications(res.data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get(`${base_url}/career`)
-      .then((res) => setApplications(res.data))
-      .catch((err) => console.error(err));
-  }, []);
+  axiosInstance
+    .get('/career') // baseURL is already configured
+    .then((res) => setApplications(res.data))
+    .catch((err) => {
+      console.error("Error fetching students:", err);
+      alert("You are not authorized to view this data. Please login.");
+    });
+}, []);
 
   const columns = useMemo(
     () => [
