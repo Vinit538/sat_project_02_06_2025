@@ -40,7 +40,7 @@ import ApplicationsPage from './components/admin/ApplicationsPage';
 import HiringRequestsPage from './components/admin/HiringRequestsPage';
 
 import TestCorsComponent from './TestCorsComponent';
-
+import Loader from './Loader';
 
 
 
@@ -105,27 +105,50 @@ import Courses from './components/PagesComponents/Courses';
 // };
 
 
+import SkeletonLoader from './SkeletonLoader';
+import FancySkeletonLoader from './FancySkeletonLoader';
+import AdminNavbar from './components/admin/AdminNavbar';
+import { useAuth } from './auth/AuthContext';
+import AdminSidebar from './components/admin/AdminSidebar';
+import CourseNewBatch from './components/admin/CourseNewBatch';
 
 
 const AppContent = () => {
-  const location = useLocation();
-  const [loading, setLoading] = useState(true);
+  // const location = useLocation();
+  //const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setLoading(false), 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+  // }, [location]);
+  const location = useLocation();
+  const [initialLoading, setInitialLoading] = useState(true);
+  // No need for routeLoading state if using Suspense fallback
+  const { role } = useAuth();
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
+    const timer = setTimeout(() => setInitialLoading(false), 1000);
     return () => clearTimeout(timer);
-  }, [location]);
+  }, []);
 
   return (
     <>
-      {loading && <PageLoader />}
+      {/* {loading && <PageLoader />}
       {!loading && (
+        <> */}
+      {initialLoading && <PageLoader />}
+      {!initialLoading && (
         <>
           <ScrollIndicator color="#4f46e5" />
           <Navbar />
+          {role === 'admin' && <AdminSidebar />}
+          {/* <AdminNavbar /> */}
+          {/* <AdminSidebar /> */}
           <ScrollToTop />
           <AnimatePresence mode="wait">
-            <Suspense fallback={<PageLoader />}>
+            {/* <Suspense fallback={<SkeletonLoader />}> */}
+            <Suspense fallback={<FancySkeletonLoader />} >
+
               <Routes location={location} key={location.pathname}>
                 {/* Public Pages */}
                 <Route path="/" element={<Home />} />
@@ -193,6 +216,14 @@ const AppContent = () => {
                     </ProtectedRoute>
                   }
                 />
+                <Route
+                  path="/admin/CourseNewBatch"
+                  element={
+                    <ProtectedRoute requiredRole="admin">
+                      <CourseNewBatch />
+                    </ProtectedRoute>
+                  }
+                />
               </Routes>
             </Suspense>
           </AnimatePresence>
@@ -207,6 +238,7 @@ function App() {
   return (
     <Router>
       <AppContent />
+      {/* <FancySkeletonLoader /> */}
     </Router>
   );
 }

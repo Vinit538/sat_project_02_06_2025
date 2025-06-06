@@ -16,12 +16,6 @@ export default function MessagesPage() {
   const [techFilter, setTechFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${base_url}/api/messages`)
-  //     .then((res) => setMessages(res.data))
-  //     .catch((err) => console.error(err));
-  // }, []);
 
   useEffect(() => {
   axiosInstance
@@ -49,6 +43,7 @@ export default function MessagesPage() {
 
   const columns = useMemo(
     () => [
+      { Header:"Message Id",accessor:"id"},
       { Header: "Name", accessor: "userName" },
       { Header: "Email", accessor: "userEmail" },
       { Header: "Phone", accessor: "userPhoneNo" },
@@ -57,15 +52,20 @@ export default function MessagesPage() {
         accessor: (row) => row.user?.userSelectedTech || "N/A",
         id: "technology",
       },
+       {
+        Header: "User ID",
+        accessor: (row) => row.user?.id || "N/A",
+        id: "userId",
+      },
       {
         Header: "Message",
         accessor: "userMessage",
       },
-      {
-        Header: "Time",
-        accessor: (row) => dayjs(row.createdAt).format("YYYY-MM-DD HH:mm"),
-        id: "createdAt",
-      },
+      // {
+      //   Header: "Time",
+      //   accessor: (row) => dayjs(row.createdAt).format("YYYY-MM-DD HH:mm"),
+      //   id: "createdAt",
+      // },
     ],
     []
   );

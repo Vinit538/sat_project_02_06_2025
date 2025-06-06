@@ -1,0 +1,82 @@
+/* components/FancySkeletonLoader.css */
+
+.skeleton-container {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.skeleton-header,
+.skeleton-subheader,
+.skeleton-line,
+.skeleton-thumbnail,
+.skeleton-card {
+  background: #e0e0e0;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-header {
+  width: 50%;
+  height: 32px;
+  margin-bottom: 10px;
+}
+
+.skeleton-subheader {
+  width: 30%;
+  height: 20px;
+  margin-bottom: 40px;
+}
+
+.skeleton-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skeleton-card {
+  width: 280px;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f6f7f8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.skeleton-thumbnail {
+  height: 150px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.skeleton-line {
+  height: 16px;
+  width: 100%;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+/* Shimmer Animation */
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

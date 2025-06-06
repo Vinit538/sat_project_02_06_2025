@@ -159,17 +159,20 @@ const DatabaseAdministration = () => {
                 href="https://example.com/database-admin-brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="download-btn"
+                className="satCoursePage-register-btn"
               >
-                <FaFileDownload className="satCoursePage-icon" /> Download Brochure
+                <FaFileDownload /> Download Brochure
               </a>
-              <a href="/register" className="satCoursePage-btn satCoursePage-register-btn">
+              <a href="/register" className="satCoursePage-register-btn">
                 <FaUserPlus /> Register Now
               </a>
             </div>
           </motion.section>
 
-          <FeeCard courseId="satC3" />
+          <FeeCard courseId={course.id} />
+          <a href="/courses" className="floating-back-button">
+            ←
+          </a>
         </div>
       </div>
     </div>

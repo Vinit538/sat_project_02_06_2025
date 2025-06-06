@@ -12,11 +12,7 @@ export default function HiringRequestsPage() {
   const [requests, setRequests] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
-  // useEffect(() => {
-  //   axios.get(`${base_url}/hire-talent`)
-  //     .then(res => setRequests(res.data))
-  //     .catch(err => console.error(err));
-  // }, []);
+  
 useEffect(() => {
   axiosInstance
     .get('/hire-talent') // baseURL is already configured
@@ -27,6 +23,7 @@ useEffect(() => {
     });
 }, []);
   const columns = useMemo(() => [
+    {Header :"Request ID",accessor:"id"},
     { Header: "Name", accessor: "name" },
     { Header: "Email", accessor: "email" },
     { Header: "Phone", accessor: "phone" },

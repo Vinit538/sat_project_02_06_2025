@@ -5,6 +5,7 @@
   color: #222;
   line-height: 1.6;
   padding-bottom: 4rem;
+  padding-top: 100px;
 }
 
 .satCoursePage-wrapper {
@@ -93,83 +94,58 @@
   overflow: hidden;
 }
 
-/* .accordion-btn {
-  background: #f3f4f6;
-  border: none;
-  width: 100%;
-  text-align: left;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #111827;
-}
-
-.accordion-btn:hover {
-  background-color: #e5e7eb;
-}
-
-.accordion-content {
-  background: #fff;
-  padding: 1rem;
-  border-top: 1px solid #e5e7eb;
-  color: #374151;
-} */
 
 .colored-theme {
-    background: linear-gradient(135deg, #f0f4ff, #e3f2fd);
-    color: #1a237e;
+  background: linear-gradient(135deg, #f0f4ff, #e3f2fd);
+  color: #1a237e;
 }
 
 .accordion-item {
-    margin-bottom: 1rem;
-    border-radius: 12px;
-    border: 1px solid #d1d1ff;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    background-color: white;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 1px solid #d1d1ff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: white;
 }
 
 .accordion-btn {
-    background-color: #e8eaf6;
-    color: #1a237e;
-    width: 100%;
-    text-align: left;
-    padding: 0.75rem 1.2rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: none;
-    cursor: pointer;
+  background-color: #e8eaf6;
+  color: #1a237e;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  cursor: pointer;
 }
 
 .accordion-icon {
-    margin-right: 10px;
-    font-size: 1.2rem;
-    color: #3f51b5;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: #3f51b5;
 }
 
 .accordion-content {
-    padding: 1rem 1.5rem;
-    background-color: #fefefe;
-    font-size: 0.95rem;
-    color: #333;
+  padding: 1rem 1.5rem;
+  background-color: #fefefe;
+  font-size: 0.95rem;
+  color: #333;
 }
 
 .accordion-toggle {
-    font-size: 1.5rem;
-    color: #303f9f;
+  font-size: 1.5rem;
+  color: #303f9f;
 }
 
 .accordion-item.active .accordion-btn {
-    background-color: #c5cae9;
-    color: #0d47a1;
-    font-weight: bold;
+  background-color: #c5cae9;
+  color: #0d47a1;
+  font-weight: bold;
 }
 
 
@@ -181,7 +157,7 @@
 }
 
 .accordion-icon {
-  color: #007bff; /* Adjust as needed */
+  color: #007bff;
   font-size: 1.2rem;
 }
 
@@ -239,23 +215,24 @@
 .satCoursePage-register-btn:hover {
   background: #047857;
 }
+
 .brochure-download {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .floating-back-button {
   position: fixed;
   bottom: 20px;
-  right: 20px; /* or left: 20px */
-  background-color: #007bff; /* your preferred color */
+  right: 20px;
+  background-color: #007bff;
   color: white;
   padding: 10px 15px;
   border-radius: 25px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   text-decoration: none;
   font-weight: 600;
   z-index: 1000;
@@ -268,58 +245,33 @@
 
 
 .brochure-download {
-    display: flex;
-    flex-direction: column; /* Or 'row' if you want them side-by-side */
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
 }
 
 .download-btn,
 .satCoursePage-register-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #004aad; /* Primary blue */
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #004aad;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .download-btn:hover,
 .satCoursePage-register-btn:hover {
-    background-color: #00318c; /* Darker blue on hover */
+  background-color: #00318c;
+  /* Darker blue on hover */
 }
 
-
-
-/* .brochure-download {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-.download-btn, .back-link {
-    background: #007bff;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background 0.3s ease;
-}
-
-.download-btn:hover, .back-link:hover {
-    background: #0056b3;
-} */
 
 /* Responsive */
 @media screen and (max-width: 768px) {
@@ -334,5 +286,82 @@
   .satCoursePage-btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .satCoursePage {
+    padding: 100px 0px !important;
+  }
+
+  .satCoursePage-hero-section {
+    padding: 20px !important;
+  }
+
+  .satCoursePage-wrapper {
+    padding: 10px !important;
+  }
+
+  .satCoursePage-container {
+    padding: 0px !important;
+  }
+
+  .accordion-content {
+    padding: 1rem 1rem;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  .accordion-btn {
+    padding: 15px !important;
+    font-size: 15px;
+  }
+
+  .brochure-download {
+    gap: 1rem;
+    padding: 0px;
+  }
+
+  .brochure-download {
+    padding: 0px 0px !important;
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width:321px) {
+
+  .satCoursePage {
+    padding: 100px 0px !important;
+  }
+
+  .satCoursePage-hero-section {
+    padding: 20px !important;
+  }
+
+  .satCoursePage-wrapper {
+    padding: 10px !important;
+  }
+
+  .satCoursePage-container {
+    padding: 0px !important;
+  }
+
+  .accordion-content {
+    padding: 10px;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  .accordion-btn {
+    padding: 15px !important;
+    font-size: 18px;
+  }
+
+  .brochure-download {
+    gap: 1rem;
+    padding: 0px;
+  }
+
+  .brochure-download {
+    padding: 0px 0px !important;
   }
 }

@@ -1,0 +1,94 @@
+/* Container */
+.loader-container {
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Fade-out effect */
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Background stars animation */
+.background-stars {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Replace with your desired star pattern */
+  opacity: 0.15;
+  animation: moveStars 40s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveStars {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100px, -100px); }
+}
+
+/* Glowing Circles */
+.circles-wrapper {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #00ffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+  animation: expandOnce 2s ease-out forwards;
+}
+
+.circle1 { width: 200px; height: 100px; animation-delay: 0s; }
+.circle2 { width: 220px; height: 120px; animation-delay: 0.2s; }
+.circle3 { width: 240px; height: 140px; animation-delay: 0.4s; }
+
+@keyframes expandOnce {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Logo Glow */
+.loader-logo {
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+  animation: logoGlow 2s infinite alternate;
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+@keyframes logoGlow {
+  from { filter: drop-shadow(0 0 5px #00ffff); }
+  to { filter: drop-shadow(0 0 20px #00ffff); }
+}
+
+/* Text Animation & Glow */
+.loader-text {
+  margin-top: 20px;
+  color: #00ffff;
+  font-size: 24px;
+  font-weight: 600;
+  z-index: 2;
+  animation: textPulse 2s infinite;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+@keyframes textPulse {
+  0% { transform: scale(1); text-shadow: 0 0 10px #00ffff; }
+  50% { transform: scale(1.05); text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+  100% { transform: scale(1); text-shadow: 0 0 10px #00ffff; }
+}

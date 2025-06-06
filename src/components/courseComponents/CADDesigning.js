@@ -161,11 +161,11 @@ const CADDesigning = () => {
                                 href="https://example.com/cad-designing-brochure.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="download-btn"
+                                className="satCoursePage-register-btn"
                             >
-                                <FaFileDownload className="satCoursePage-icon" /> Download Brochure
+                                <FaFileDownload /> Download Brochure
                             </a>
-                            <a href="/register" className="satCoursePage-btn satCoursePage-register-btn">
+                            <a href="/register" className="satCoursePage-register-btn">
                                 <FaUserPlus /> Register Now
                             </a>
                         </div>

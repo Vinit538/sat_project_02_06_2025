@@ -7,14 +7,24 @@
   padding: 100px 50px !important;
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 320px) {
   .hire-from-us,
   .about-us,
   .internships-page,
   .courses-page,
   .projects-page,
   .contact-us {
-    padding: 100px 10px !important;
+    padding: 100px 0px !important;
+  }
+}
+@media screen and (max-width: 425px) and (min-width:321px){
+  .hire-from-us,
+  .about-us,
+  .internships-page,
+  .courses-page,
+  .projects-page,
+  .contact-us {
+    padding: 100px 0px !important;
   }
 }
 @media screen and (max-width: 320px) {
@@ -22,6 +32,7 @@
   .courses-hero{
     text-align: left !important;
     padding: 15px !important;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5) !important;
   }
   
 }

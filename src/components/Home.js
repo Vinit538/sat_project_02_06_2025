@@ -9,6 +9,7 @@ import OurPrograms from './HomeComponents/OurPrograms';
 import OurSuccessStories from './HomeComponents/OurSuccessStories';
 import MarqueeCourses from './HomeComponents/MarqueeCourses';
 
+
 function Home() {
   return (
     <div className='mainbody'>
@@ -39,7 +40,10 @@ function Home() {
       <section id="courses" className="courses-section">
         <OurPrograms />
       </section>
-
+      
+      {/* <section>
+        <BatchAvailability batches={batches} /> 
+      </section> */}
       {/* Placement/Success Stories Section */}
       <section className="placement-section">
         <OurSuccessStories />

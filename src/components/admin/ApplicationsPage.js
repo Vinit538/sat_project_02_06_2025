@@ -14,12 +14,7 @@ export default function ApplicationsPage() {
   const [applications, setApplications] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${base_url}/career`)
-  //     .then((res) => setApplications(res.data))
-  //     .catch((err) => console.error(err));
-  // }, []);
+
 
   useEffect(() => {
   axiosInstance
@@ -33,6 +28,7 @@ export default function ApplicationsPage() {
 
   const columns = useMemo(
     () => [
+      { Header:"Application ID",accessor:"id"},
       { Header: "Name", accessor: "name" },
       { Header: "Email", accessor: "email" },
       { Header: "Phone", accessor: "phone" },
