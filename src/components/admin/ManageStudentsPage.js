@@ -338,15 +338,25 @@ import "./ManageStudentsPage.css";
 export default function ManageStudentsPage() {
   const [students, setStudents] = useState([]);
 
+  // useEffect(() => {
+  //   axiosInstance
+  //     .get('/submissions')
+  //     .then((res) => setStudents(res.data))
+  //     .catch((err) => {
+  //       console.error("Error fetching students:", err);
+  //       alert("You are not authorized to view this data. Please login.");
+  //     });
+  // }, []);
   useEffect(() => {
-    axiosInstance
-      .get('/submissions')
-      .then((res) => setStudents(res.data))
-      .catch((err) => {
-        console.error("Error fetching students:", err);
-        alert("You are not authorized to view this data. Please login.");
-      });
-  }, []);
+  axiosInstance
+    .get('/submissions', { withCredentials: true }) // ✅ ADD THIS
+    .then((res) => setStudents(res.data))
+    .catch((err) => {
+      console.error("Error fetching students:", err);
+      alert("You are not authorized to view this data. Please login.");
+    });
+}, []);
+
 
   const data = useMemo(() => students, [students]);
 

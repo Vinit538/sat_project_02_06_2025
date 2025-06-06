@@ -149,16 +149,7 @@ const SatLogin = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await axiosInstance.post('/admin/login', { email, password });
-  //     login(res.data.role); // ✅ Save role only
-  //     navigate("/admin");
-  //   } catch (err) {
-  //     setError("Invalid email or password");
-  //   }
-  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
